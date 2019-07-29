@@ -4,7 +4,6 @@ import java.io.UnsupportedEncodingException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import com.bot.messenger.model.fb.UserDetail;
 
 
@@ -19,7 +18,7 @@ public class QnaResponse1 {
 					"{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s\" } }",
 					"Ciao " + userDetail.getFirstName() + " " + userDetail.getLastName()+",How can I help you?");
 			break;		
-		case "view product":
+		case "view courses":
 			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"button\", \"text\":\"Our Products!!!\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"CONTI\", \"payload\":\"list conti\" }, { \"type\":\"postback\", \"title\":\"CARTE\", \"payload\":\"list carte\" }, { \"type\":\"postback\", \"title\":\"View More\", \"payload\":\"view1\" } ] } } } }";
 			break;
 		case "view1":
@@ -31,7 +30,7 @@ public class QnaResponse1 {
 		case "list conti":
 			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"CONTI\", \"image_url\":\"https://udayanbot.herokuapp.com/img/conti_correnti_bse.gif\", \"subtitle\":\"WEBSELLA\", \"default_action\":{ \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/conti-e-carte/websella.jsp\", \"webview_height_ratio\":\"compact\" }, \"buttons\":[{ \"type\":\"postback\", \"title\":\"Websella\", \"payload\":\"websella\" } ] } ] } } } }";
 			break;
-		case "list carte":
+		case "list departments":
 		    jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"button\", \"text\":\"Our Carte!!!\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"CARTE DI DEBITO\", \"payload\":\"all carte details\" }, { \"type\":\"postback\", \"title\":\"CARTE DI CREDITO\", \"payload\":\"all carte details\" }, { \"type\":\"postback\", \"title\":\"HYPE PLUS\", \"payload\":\"all carte details\" }  ] } } } }";
 		break;
 		case "list investimenti":
@@ -112,6 +111,9 @@ public class QnaResponse1 {
 		case "famiglia":
 			jsonResponse="{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Protezione Famiglia\", \"image_url\":\"https://udayanbot.herokuapp.com/img/family.png\", \"subtitle\":\"Con Famiglia InChiaro:\\nLe prestazioni assicurate sono:\\nRC del capo famiglia.\\ntutela legale (attiva e passiva).\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/protezione/protezione-famiglia.jsp\", \"title\":\"For More Details\" }, { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/protezione/protezione-famiglia.jsp\", \"title\":\"On Boarding\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] } ] } } } }";
 		break;
+		case "coure details":
+			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"list\", \"elements\":[ { \"title\":\"Science and Humanities\", \"image_url\":\"https://college-messenger-bot.herokuapp.com/img/banner_science-Humanities.jpg\", \"subtitle\":\"Science and Humanities\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"CARTE DI DEBITO\" } ] }, { \"title\":\"Computer Science Engineering\", \"image_url\":\"https://college-messenger-bot.herokuapp.com/img/banner_computer-Science_2.jpg\", \"subtitle\":\"CSE\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"CARTE DI CREDITO\" } ] }, { \"title\":\"Electronics and Communication Engineering\", \"image_url\":\"https://college-messenger-bot.herokuapp.com/img/banner_electronics-Communication.jpg\", \"subtitle\":\"ECE\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"CARTE DI CREDITO\" } ] }, { \"title\":\"Civil Engineering\", \"image_url\":\"https://college-messenger-bot.herokuapp.com/img/banner_civil-Engineering.jpg\", \"subtitle\":\"CIVIL\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"HYPE PLUS\" } ] } ] } } } }";
+		break;
 		case "call our representative":
 			jsonResponse = String.format(
 					"{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s\" } }",
@@ -148,6 +150,8 @@ public class QnaResponse1 {
 		String searchString=textSearch;
 		if(textSearch.equals("first hand shake")) {
 			searchString="welcome msg";
+		}else if(textSearch.contains("all course") || textSearch.contains("course")) {
+			searchString="course details";
 		}
 		else if( textSearch.contains("product")) {
 			searchString="view product";
