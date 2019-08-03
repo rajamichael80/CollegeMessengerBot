@@ -16,7 +16,7 @@ public class QnaResponse1 {
 		case "hi":
 			jsonResponse = String.format(
 					"{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s\" } }",
-					"Ciao " + userDetail.getFirstName() + " " + userDetail.getLastName()+",How can I help you dear?");
+					"Ciao " + userDetail.getFirstName() + " " + userDetail.getLastName()+",How can I help you dearplease tell me?");
 			break;		
 		case "view courses":
 			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"button\", \"text\":\"Our Products!!!\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"CONTI\", \"payload\":\"list conti\" }, { \"type\":\"postback\", \"title\":\"CARTE\", \"payload\":\"list carte\" }, { \"type\":\"postback\", \"title\":\"View More\", \"payload\":\"view1\" } ] } } } }";
