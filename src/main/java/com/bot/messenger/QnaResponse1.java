@@ -16,11 +16,10 @@ public class QnaResponse1 {
 		case "hi":
 			jsonResponse = String.format(
 					"{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s\" } }",
-					"Hi " + userDetail.getFirstName() + " " + userDetail.getLastName()+",How may I help you?");
+					"Hi " + userDetail.getFirstName() + " " + userDetail.getLastName()+",Welcome to New Prince Shri Bhavani College of Engineering and Technology, How can I help you?");
 			break;		
-		case "view courses":
-			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"button\", \"text\":\"Our Products!!!\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"CONTI\", \"payload\":\"list conti\" }, { \"type\":\"postback\", \"title\":\"CARTE\", \"payload\":\"list carte\" }, { \"type\":\"postback\", \"title\":\"View More\", \"payload\":\"view1\" } ] } } } }";
-			break;
+		case "course":
+			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Course\", \"image_url\":\"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"subtitle\":\"Cousre Details\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-applications.php\", \"title\":\"MCA\" }, { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-science.php\", \"title\":\"Computer Science Engineering\" },{ \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/information-technology.php\", \"title\":\"Information Technology\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] }  ] } } } }";			break;
 		case "view1":
 			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"button\", \"text\":\"Other Products!!!\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"INVESTIMENTI E RISPARMIO\", \"payload\":\"list investimenti e risparmio\" }, { \"type\":\"postback\", \"title\":\"FINANZIAMENTI\", \"payload\":\"list finanziamenti\" }, { \"type\":\"postback\", \"title\":\"View More\", \"payload\":\"view2\" } ] } } } }";
 			break;
@@ -52,7 +51,7 @@ public class QnaResponse1 {
 			jsonResponse="{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"MASTERCARD CLASSIC\", \"image_url\":\"https://udayanbot.herokuapp.com/img/mastercard_classic_bse.gif\", \"subtitle\":\"Mastercard Classic è la carta di credito che prevede, se utilizzata a saldo, un addebito unico mensile del tuo speso. E' adatta per la gestione della tua liquidità e ti permette di effettuare pagamenti, anche tramite la funzionalità contatless\\\\n Canone primo anno 31 € \\\\n Gratis oltre i 7000 € di spese/anno \\\\n Sicura con Chip & PIN e Mastercard SecureCode\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/conti-e-carte/carte/mastercard-classic.jsp\", \"title\":\"For More Details\" }, { \"type\":\"web_url\", \"url\":\"https://www.sella.it/AuthenticationDelegatedServlet?delegated_service=219&SECODE=ONBOARDING_CL&SEACTION=LOGIN&SEPARAMS=parameterCode=MASTERCARD_CLASSIC\", \"title\":\"On Boarding\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] } ] } } } }";
 			break;
 		case "hype plus":
-			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Course\", \"image_url\":\"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"subtitle\":\"Cousre Details\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-applications.php\", \"title\":\"For More Details\" }, { \"type\":\"web_url\", \"url\":\"https://www.hype.it/signup/request/hype/contact-info\", \"title\":\"On Boarding\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] }  ] } } } }";
+				jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Course\", \"image_url\":\"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"subtitle\":\"Cousre Details\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-applications.php\", \"title\":\"For More Details\" }, { \"type\":\"web_url\", \"url\":\"https://www.hype.it/signup/request/hype/contact-info\", \"title\":\"On Boarding\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] }  ] } } } }";
 			break;
 		case "all carte details":
 			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"list\", \"elements\":[ { \"title\":\"CARTE DI DEBITO\", \"image_url\":\"https://udayanbot.herokuapp.com/img/cirrus_maestro_basic.jpg\", \"subtitle\":\"CARTE\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"CARTE DI DEBITO\" } ] }, { \"title\":\"CARTE DI CREDITO\", \"image_url\":\"https://udayanbot.herokuapp.com/img/visa_classic_bse.gif\", \"subtitle\":\"VISA\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"CARTE DI CREDITO\" } ] },{ \"title\":\"CARTE DI CREDITO\", \"image_url\":\"https://udayanbot.herokuapp.com/img/mastercard_classic_bse.gif\", \"subtitle\":\"MASTER\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"CARTE DI CREDITO\" } ] }, { \"title\":\"HYPE PLUS\", \"image_url\":\"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"subtitle\":\"CARTE\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"HYPE PLUS\" } ] } ] } } } }";
@@ -151,7 +150,7 @@ public class QnaResponse1 {
 		if(textSearch.equals("first hand shake")) {
 			searchString="welcome msg";
 		}else if(textSearch.contains("all course") || textSearch.contains("course")) {
-			searchString="course details";
+			searchString="course";
 		}
 		else if( textSearch.contains("product")) {
 			searchString="view product";
@@ -213,7 +212,7 @@ public class QnaResponse1 {
 			searchString="pir";
 		}
 		logger.info("The actual Search String  is{}",searchString);
-		return searchString;
+		return searchString.toLowerCase();
 		
 	}
 }
