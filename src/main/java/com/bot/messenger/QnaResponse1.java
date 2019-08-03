@@ -16,10 +16,10 @@ public class QnaResponse1 {
 		case "hi":
 			jsonResponse = String.format(
 					"{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s\" } }",
-					"Hi " + userDetail.getFirstName() + " " + userDetail.getLastName()+",Welcome to New Prince Shri Bhavani College of Engineering and Technology, How can I help you?");
+					"Ciao " + userDetail.getFirstName() + " " + userDetail.getLastName()+",Welcome to New Prince Shri Bhavani College of ENgineering and Technology, How can I help you?");
 			break;		
 		case "course":
-			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Course\", \"image_url\":\"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"subtitle\":\"Cousre Details\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-applications.php\", \"title\":\"MCA\" }, { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-science.php\", \"title\":\"Computer Science Engineering\" },{ \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/information-technology.php\", \"title\":\"Information Technology\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] }  ] } } } }";
+			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Courses\", \"image_url\":\"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"subtitle\":\"Here is cousre details\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-applications.php\", \"title\":\"MCA\" }, { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-science.php\", \"title\":\"Information Technology\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] }  ] } } } }";
 			break;
 		case "view1":
 			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"button\", \"text\":\"Other Products!!!\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"INVESTIMENTI E RISPARMIO\", \"payload\":\"list investimenti e risparmio\" }, { \"type\":\"postback\", \"title\":\"FINANZIAMENTI\", \"payload\":\"list finanziamenti\" }, { \"type\":\"postback\", \"title\":\"View More\", \"payload\":\"view2\" } ] } } } }";
@@ -51,7 +51,18 @@ public class QnaResponse1 {
 		case "mastercard classic":
 			jsonResponse="{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"MASTERCARD CLASSIC\", \"image_url\":\"https://udayanbot.herokuapp.com/img/mastercard_classic_bse.gif\", \"subtitle\":\"Mastercard Classic è la carta di credito che prevede, se utilizzata a saldo, un addebito unico mensile del tuo speso. E' adatta per la gestione della tua liquidità e ti permette di effettuare pagamenti, anche tramite la funzionalità contatless\\\\n Canone primo anno 31 € \\\\n Gratis oltre i 7000 € di spese/anno \\\\n Sicura con Chip & PIN e Mastercard SecureCode\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/conti-e-carte/carte/mastercard-classic.jsp\", \"title\":\"For More Details\" }, { \"type\":\"web_url\", \"url\":\"https://www.sella.it/AuthenticationDelegatedServlet?delegated_service=219&SECODE=ONBOARDING_CL&SEACTION=LOGIN&SEPARAMS=parameterCode=MASTERCARD_CLASSIC\", \"title\":\"On Boarding\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] } ] } } } }";
 			break;
-		
+		case "hype plus":
+			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"HYPE PLUS\", \"image_url\":\"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"subtitle\":\"HYPE Plus è semplice e smart: controlla tutto ciò che serve dal tuo smartphone\\n Puoi ricaricare la tua carta fino a 50.000€ all'anno\\n Prelievi gratuiti da tutti gli ATM in Italia e nel mondo\\n Visualizzi all'istante i movimenti della tua carta\\n La metti in pausa quando vuoi, direttamente dall'app\\n Hai il tuo IBAN attivo in pochi minuti\\n Puoi pagare con il tuo smartphone\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/conti-e-carte/carte/hype.jsp\", \"title\":\"For More Details\" }, { \"type\":\"web_url\", \"url\":\"https://www.hype.it/signup/request/hype/contact-info\", \"title\":\"On Boarding\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] }  ] } } } }";
+			break;
+		case "all carte details":
+			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"list\", \"elements\":[ { \"title\":\"CARTE DI DEBITO\", \"image_url\":\"https://udayanbot.herokuapp.com/img/cirrus_maestro_basic.jpg\", \"subtitle\":\"CARTE\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"CARTE DI DEBITO\" } ] }, { \"title\":\"CARTE DI CREDITO\", \"image_url\":\"https://udayanbot.herokuapp.com/img/visa_classic_bse.gif\", \"subtitle\":\"VISA\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"CARTE DI CREDITO\" } ] },{ \"title\":\"CARTE DI CREDITO\", \"image_url\":\"https://udayanbot.herokuapp.com/img/mastercard_classic_bse.gif\", \"subtitle\":\"MASTER\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"CARTE DI CREDITO\" } ] }, { \"title\":\"HYPE PLUS\", \"image_url\":\"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"subtitle\":\"CARTE\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"HYPE PLUS\" } ] } ] } } } }";
+			break;		
+		case "cirrus maestro basic":
+			jsonResponse = "{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"You are applying cirrus maestro basic \" } }";
+			break;
+		case "hypeplus application":
+			jsonResponse = "{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"You are applying hypeplus application \" } }";
+			break;
 		case "welcome msg":
 			jsonResponse =String.format("{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s, Welcome to Sella bot, How can I help you? \" } }","Hi "+userDetail.getFirstName()+" "+userDetail.getLastName());
 			break;		
@@ -82,7 +93,27 @@ public class QnaResponse1 {
 		case "cessione del quinto":
 			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Cessione del quinto\", \"image_url\":\"https://udayanbot.herokuapp.com/img/Cessione_del_quinto.png\", \"subtitle\":\"La cessione del quinto della pensione è un prestito a tasso fisso che può avere importo massimo di 45.000 euro e durata compresa tra 36 e 120 mesi. Non è necessario motivare la richiesta per il suo ottenimento. L’importo della rata non può essere superiore a 1/5 del valore della pensione.\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/finanziamenti/cessione-del-quinto.jsp\", \"title\":\"For More Details\" }, { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/finanziamenti/cessione-del-quinto.jsp\", \"title\":\"On Boarding\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] } ] } } } }";
 		break;
-		
+		case "prestidea ambiente":
+			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Prestidea Ambiente\", \"image_url\":\"https://udayanbot.herokuapp.com/img/prestidea_ambiente.png\", \"subtitle\":\"Un consumo consapevole aiuta a conservare e rigenerare le risorse energetiche, per questo da sempre Banca Sella adotta comportamenti sostenibili che valorizzano le risorse naturali.\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/finanziamenti/prestidea-ambiente.jsp\", \"title\":\"For More Details\" }, { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/finanziamenti/prestidea-ambiente.jsp\", \"title\":\"On Boarding\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] } ] } } } }";
+		break;
+		case "list protezione":
+			jsonResponse="{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Protezione Persona\", \"image_url\":\"https://udayanbot.herokuapp.com/img/persona.png\", \"subtitle\":\"PROTEZIONE\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"persona\" } ] }, { \"title\":\"Protezione Famiglia\", \"image_url\":\"https://udayanbot.herokuapp.com/img/family.png\", \"subtitle\":\"PROTEZIONE\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"famiglia\" } ] }, { \"title\":\"Protezione Casa\", \"image_url\":\"https://udayanbot.herokuapp.com/img/casa.png\", \"subtitle\":\"PROTEZIONE\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"casa\" } ] }, { \"title\":\"Assicurazione Valore Auto\", \"image_url\":\"https://udayanbot.herokuapp.com/img/auto.png\", \"subtitle\":\"PROTEZIONE\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"assicurazione valore auto\" } ] } ] } } } }";
+		break;
+		case "persona":
+			jsonResponse="{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Protezione Persona\", \"image_url\":\"https://udayanbot.herokuapp.com/img/persona.png\", \"subtitle\":\"rimborso spese mediche;\\nricovero ospedaliero, convalescenza e gesso\\ninvalidità permanente;\\ndecesso a seguito di infortunio.\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/protezione/protezione-infortuni.jsp\", \"title\":\"For More Details\" }, { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/protezione/protezione-infortuni.jsp\", \"title\":\"On Boarding\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] } ] } } } }";
+		break;
+		case "auto":
+			jsonResponse="{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Assicurazione Valore Auto\", \"image_url\":\"https://udayanbot.herokuapp.com/img/auto.png\", \"subtitle\":\"\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/protezione/protezione-auto.jsp\", \"title\":\"For More Details\" }, { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/protezione/protezione-auto.jsp\", \"title\":\"On Boarding\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] } ] } } } }";
+		break;
+		case "casa":
+			jsonResponse="{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Protezione Casa\", \"image_url\":\"https://udayanbot.herokuapp.com/img/casa.png\", \"subtitle\":\"Casa InChiaro prodotto modulare che può proteggere in caso di:\\ndanni all'abitazione e al contenuto, con tutte le coperture associate alla garanzia incendio;\\nfurto, ma anche rapina o scippo ai danni dei componenti del nucleo familiare;\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/protezione/protezione-casa.jsp\", \"title\":\"For More Details\" }, { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/protezione/protezione-casa.jsp\", \"title\":\"On Boarding\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] } ] } } } }";
+		break;
+		case "famiglia":
+			jsonResponse="{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Protezione Famiglia\", \"image_url\":\"https://udayanbot.herokuapp.com/img/family.png\", \"subtitle\":\"Con Famiglia InChiaro:\\nLe prestazioni assicurate sono:\\nRC del capo famiglia.\\ntutela legale (attiva e passiva).\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/protezione/protezione-famiglia.jsp\", \"title\":\"For More Details\" }, { \"type\":\"web_url\", \"url\":\"https://www.sella.it/banca-online/privati/protezione/protezione-famiglia.jsp\", \"title\":\"On Boarding\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] } ] } } } }";
+		break;
+		case "coure details":
+			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"list\", \"elements\":[ { \"title\":\"Science and Humanities\", \"image_url\":\"https://college-messenger-bot.herokuapp.com/img/banner_science-Humanities.jpg\", \"subtitle\":\"Science and Humanities\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"CARTE DI DEBITO\" } ] }, { \"title\":\"Computer Science Engineering\", \"image_url\":\"https://college-messenger-bot.herokuapp.com/img/banner_computer-Science_2.jpg\", \"subtitle\":\"CSE\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"CARTE DI CREDITO\" } ] }, { \"title\":\"Electronics and Communication Engineering\", \"image_url\":\"https://college-messenger-bot.herokuapp.com/img/banner_electronics-Communication.jpg\", \"subtitle\":\"ECE\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"CARTE DI CREDITO\" } ] }, { \"title\":\"Civil Engineering\", \"image_url\":\"https://college-messenger-bot.herokuapp.com/img/banner_civil-Engineering.jpg\", \"subtitle\":\"CIVIL\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"View\", \"payload\":\"HYPE PLUS\" } ] } ] } } } }";
+		break;
 		case "call our representative":
 			jsonResponse = String.format(
 					"{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s\" } }",
@@ -120,7 +151,7 @@ public class QnaResponse1 {
 		if(textSearch.equals("first hand shake")) {
 			searchString="welcome msg";
 		}else if(textSearch.contains("all course") || textSearch.contains("course")) {
-			searchString="course";
+			searchString="course details";
 		}
 		else if( textSearch.contains("product")) {
 			searchString="view product";
@@ -182,7 +213,7 @@ public class QnaResponse1 {
 			searchString="pir";
 		}
 		logger.info("The actual Search String  is{}",searchString);
-		return searchString.toLowerCase();
+		return searchString;
 		
 	}
 }
