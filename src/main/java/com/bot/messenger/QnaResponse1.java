@@ -211,7 +211,7 @@ public class QnaResponse1 {
 		}
 		else if(textSearch.contains("pir")) {
 			searchString="pir";
-		}
+		}		
 		logger.info("The actual Search String  is{}",searchString);
 		return searchString.toLowerCase();
 		
