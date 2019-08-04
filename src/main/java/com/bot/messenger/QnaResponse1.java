@@ -16,7 +16,7 @@ public class QnaResponse1 {
 		case "hi":
 			jsonResponse = String.format(
 					"{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s\" } }",
-					"Ciao " + userDetail.getFirstName() + " " + userDetail.getLastName()+",Welcome to New Prince Shri Bhavani College of ENgineering and Technology, How can I help you?");
+					"Ciao " + userDetail.getFirstName() + " " + userDetail.getLastName()+",Hi Welcome to New Prince Shri Bhavani College of ENgineering and Technology, How can I help you?");
 			break;		
 		case "course":
 			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Courses\", \"image_url\":\"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"subtitle\":\"Here is cousre details\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-applications.php\", \"title\":\"MCA\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] }  ] } } } }";
