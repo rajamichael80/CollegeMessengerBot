@@ -21,8 +21,8 @@ public class QnaResponse1 {
 		case "course":
 			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Courses\", \"image_url\":\"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"subtitle\":\"Here is cousre details\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-applications.php\", \"title\":\"MCA\" }, { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-science.php\", \"title\":\"Information Technology\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] }  ] } } } }";
 			break;
-		case "view1":
-			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"button\", \"text\":\"Other Products!!!\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"INVESTIMENTI E RISPARMIO\", \"payload\":\"list investimenti e risparmio\" }, { \"type\":\"postback\", \"title\":\"FINANZIAMENTI\", \"payload\":\"list finanziamenti\" }, { \"type\":\"postback\", \"title\":\"View More\", \"payload\":\"view2\" } ] } } } }";
+		case "time":
+			jsonResponse = String.format("{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s\" } }","College start at 9.00 AM and ends at 4.30PM");
 			break;
 		case "view2":
 			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"button\", \"text\":\"Other Products !!!\", \"buttons\":[ { \"type\":\"postback\", \"title\":\"PROTEZIONE\", \"payload\":\"list protezione\" }, { \"type\":\"postback\", \"title\":\"More\", \"payload\":\"view product\" } ] } } } }";
@@ -153,8 +153,8 @@ public class QnaResponse1 {
 		}else if(textSearch.contains("all course") || textSearch.contains("course")) {
 			searchString="course";
 		}
-		else if( textSearch.contains("product")) {
-			searchString="view product";
+		else if( textSearch.contains("time")) {
+			searchString="time";
 		}else if(textSearch.contains("conti") || textSearch.contains("account") || textSearch.contains("canti")) {
 			searchString="list conti";
 		}else if((textSearch.contains("carte") || textSearch.contains("card")|| textSearch.contains("carti")) && !(textSearch.contains("debit")||textSearch.contains("credit") || textSearch.contains("all carte details") || textSearch.contains("master"))) {
