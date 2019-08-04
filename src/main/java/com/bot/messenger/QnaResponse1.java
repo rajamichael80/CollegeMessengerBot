@@ -16,7 +16,7 @@ public class QnaResponse1 {
 		case "hi":
 			jsonResponse = String.format(
 					"{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s\" } }",
-					"Hi" + userDetail.getFirstName() + " " + userDetail.getLastName()+",HI Welcome to New Prince Shri Bhavani College of ENgineering and Technology, How can I help you?");
+					"Hi" + userDetail.getFirstName() + " " + userDetail.getLastName()+", Welcome to New Prince Shri Bhavani College of ENgineering and Technology, How can I help you?");
 			break;		
 		case "course":
 			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Courses\", \"image_url\":\"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"subtitle\":\"Here is cousre details\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-applications.php\", \"title\":\"MCA\" }, { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-science.php\", \"title\":\"Information Technology\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] }  ] } } } }";
@@ -147,11 +147,11 @@ public class QnaResponse1 {
 	}
 	
 	private static String getActualKeyword(String textSearch) {
-		String searchString=textSearch;
+		String searchString=textSearch.toLowerCase();
 		if(textSearch.equals("first hand shake")) {
 			searchString="welcome msg";
 		}else if(textSearch.contains("all course") || textSearch.contains("course")) {
-			searchString="course details";
+			searchString="course";
 		}
 		else if( textSearch.contains("product")) {
 			searchString="view product";
@@ -213,7 +213,7 @@ public class QnaResponse1 {
 			searchString="pir";
 		}
 		logger.info("The actual Search String  is{}",searchString);
-		return searchString;
+		return searchString.toLowerCase();
 		
 	}
 }
