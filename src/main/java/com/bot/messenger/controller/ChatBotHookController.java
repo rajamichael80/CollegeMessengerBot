@@ -19,16 +19,17 @@ public class ChatBotHookController {
 		String schemaName = "welcome";
 		String errorMessage ="Success";
 		Connection connection = null;
+		StackTraceElement[] trace = null;
 		try {
 			connection = DataBaseConnection.getConnection();
 			//schemaName = connection.getSchema();
 		} catch (Exception e) {
 			System.out.println(e);
-
+			trace = e.getStackTrace();
 			schemaName = e.getMessage();
 			errorMessage = "Failure";
 		}
-		return new ResponseEntity<String>("Default controller is Listening errorMessage ="+errorMessage +";Trace"+ae.getStackTrace(), HttpStatus.OK);
+		return new ResponseEntity<String>("Default controller is Listening errorMessage ="+errorMessage +";Trace"+trace+";connection="+connection, HttpStatus.OK);
 	}
 }
 //https://messengerdevelopers.com/resources/messaging
