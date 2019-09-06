@@ -21,11 +21,12 @@ public class ChatBotHookController {
 			connection = DataBaseConnection.getConnection();
 			Statement stmt = connection.createStatement();
 			  stmt.executeUpdate("DROP TABLE IF EXISTS COMPANY");
-
+			
+			if(!stmt.execute("SELECT to_regclass('public.COMPANY')")){	
        			 int i =  stmt.executeUpdate("CREATE TABLE COMPANY(CID INT PRIMARY KEY  NOT NULL,NAME  TEXT NOT NULL)");
 			 System.out.println("table status:"+i);
-			
-      			  stmt.executeUpdate("INSERT INTO COMPANY (CID,NAME) VALUES (1, 'Raj')");
+			}
+      			  stmt.executeUpdate("INSERT INTO COMPANY (CID,NAME) VALUES (2, 'Kumar')");
       			 	ResultSet rs = stmt.executeQuery("SELECT NAME FROM COMPANY");
 			int size = rs.getFetchSize();
 	 		 System.out.println("Total Record Size = "+size);
