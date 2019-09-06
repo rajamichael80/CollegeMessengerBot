@@ -24,6 +24,11 @@ public class ChatBotHookController {
 
        			 int i =  stmt.executeUpdate("CREATE TABLE COMPANY(CID INT PRIMARY KEY  NOT NULL)");
 			 System.out.println("table status:"+i);
+			DatabaseMetaData md = connection.getMetaData();
+	ResultSet rs = md.getTables(null, null, "%", null);
+	while (rs.next()) {
+	  System.out.println(rs.getString(3));
+	}
       			 // stmt.executeUpdate("INSERT INTO COMPANY VALUES (1,'Raj')");
       			 // ResultSet rs = stmt.executeQuery("SELECT NAME FROM COMPANY");
 			 // int size = rs.getFetchSize();
