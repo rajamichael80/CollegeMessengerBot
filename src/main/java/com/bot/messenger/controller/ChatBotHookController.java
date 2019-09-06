@@ -24,7 +24,7 @@ public class ChatBotHookController {
 		} catch (URISyntaxException | SQLException e) {
 			e.printStackTrace();
 		}
-		return new ResponseEntity<String>("Default controller is Listening schemaName :"+schemaName, HttpStatus.OK);
+		return new ResponseEntity<String>("Default controller is Listening schemaName is:"+schemaName, HttpStatus.OK);
 	}
 }
 //https://messengerdevelopers.com/resources/messaging
