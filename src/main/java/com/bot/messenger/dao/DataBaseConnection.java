@@ -5,7 +5,7 @@ import java.net.URISyntaxException;
 import java.sql.SQLException;
 
 public class DataBaseConnection {
-	public String getConnection() throws URISyntaxException, SQLException {
+	public static String  getConnection() throws URISyntaxException, SQLException {
 		//URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
 	    //String username = dbUri.getUserInfo().split(":")[0];

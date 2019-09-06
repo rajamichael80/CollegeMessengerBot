@@ -17,9 +17,9 @@ public class ChatBotHookController {
 	@GetMapping("/")
 	public ResponseEntity<?> sayConnected() {
 		String schemaName = "welcome";
-		DataBaseConnection db= new DataBaseConnection();
+		//DataBaseConnection db= new DataBaseConnection();
 		try {
-			schemaName = db.getConnection();
+			schemaName = DataBaseConnection.getConnection();
 			//schemaName = connection.getSchema();
 		} catch (URISyntaxException | SQLException e) {
 			//schemaName =e.getMessage();
