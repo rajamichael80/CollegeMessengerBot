@@ -25,6 +25,8 @@ public class ChatBotHookController {
 			System.out.println("table status:"+i);
       			  stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
       				  ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+			  int size = rs.getFetchSize();
+	  System.out.println("Total Record Size = "+size);
         			while (rs.next()) {
         		    System.out.println("Read from DB: " + rs.getTimestamp("tick"));
        				 }
