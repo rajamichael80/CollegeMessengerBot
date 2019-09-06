@@ -21,7 +21,7 @@ public class ChatBotHookController {
 		try {
 			connection = DataBaseConnection.getConnection();
 			//schemaName = connection.getSchema();
-		} catch (Exception | URISyntaxException | SQLException  e) {
+		} catch (Exception e) {
 			schemaName =e.getMessage();
 		}
 		return new ResponseEntity<String>("Default controller is Listening Schema Name is:"+schemaName , HttpStatus.OK);
