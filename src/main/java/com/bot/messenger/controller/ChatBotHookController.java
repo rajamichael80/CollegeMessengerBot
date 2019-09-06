@@ -16,20 +16,19 @@ public class ChatBotHookController {
 
 	@GetMapping("/")
 	public ResponseEntity<?> sayConnected() {
-		String schemaName = "welcome";
-		String errorMessage ="Success";
+		String schemaName = null;
 		Connection connection = null;
 		String trace = null;
 		try {
 			connection = DataBaseConnection.getConnection();
-			//schemaName = connection.getSchema();
+			schemaName = connection.getSchema();
 		} catch (Exception e) {
 			System.out.println(e);
 			trace = e.getLocalizedMessage();
 			schemaName = e.getMessage();
 			errorMessage = "Failure";
 		}
-		return new ResponseEntity<String>("Default controller is Listening errorMessage ="+errorMessage +";Trace"+trace+";connection="+connection, HttpStatus.OK);
+		return new ResponseEntity<String>("Default controller is Listening Schema Name:"+schemaName, HttpStatus.OK);
 	}
 }
 //https://messengerdevelopers.com/resources/messaging
