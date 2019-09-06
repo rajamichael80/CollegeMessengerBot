@@ -23,7 +23,7 @@ public class ChatBotHookController {
        			 int i =  stmt.executeUpdate("CREATE TABLE COMPANY(ID INT PRIMARY KEY  NOT NULL,NAME  TEXT NOT NULL)");
 			System.out.println("table status:"+i);
       			  stmt.executeUpdate("INSERT INTO COMPANY VALUES (1,'Raj')");
-      			  ResultSet rs = stmt.executeQuery("SELECT tick COMPANY ticks");
+      			  ResultSet rs = stmt.executeQuery("SELECT NAME FROM COMPANY");
 			  int size = rs.getFetchSize();
 	 		 System.out.println("Total Record Size = "+size);
         			while (rs.next()) {
