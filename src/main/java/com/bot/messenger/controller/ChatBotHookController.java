@@ -22,20 +22,16 @@ public class ChatBotHookController {
 			Statement stmt = connection.createStatement();
 			  stmt.executeUpdate("DROP TABLE IF EXISTS COMPANY");
 
-       			 int i =  stmt.executeUpdate("CREATE TABLE COMPANY(CID INT PRIMARY KEY  NOT NULL)");
+       			 int i =  stmt.executeUpdate("CREATE TABLE COMPANY(CID INT PRIMARY KEY  NOT NULL,NAME  TEXT NOT NULL)");
 			 System.out.println("table status:"+i);
-			DatabaseMetaData md = connection.getMetaData();
-	ResultSet rs = md.getTables(null, null, "%", null);
-	while (rs.next()) {
-	  System.out.println(rs.getString(3));
-	}
-      			 // stmt.executeUpdate("INSERT INTO COMPANY VALUES (1,'Raj')");
-      			 // ResultSet rs = stmt.executeQuery("SELECT NAME FROM COMPANY");
-			 // int size = rs.getFetchSize();
-	 		// System.out.println("Total Record Size = "+size);
-        			//while (rs.next()) {
-        		   // System.out.println("Read from DB: " + rs.getTimestamp("tick"));
-       				// }
+			
+      			  stmt.executeUpdate("INSERT INTO COMPANY (ID,NAME) VALUES (1, 'Raj')");
+      			 	ResultSet rs = stmt.executeQuery("SELECT NAME FROM COMPANY");
+			int size = rs.getFetchSize();
+	 		 System.out.println("Total Record Size = "+size);
+        			while (rs.next()) {
+        		   System.out.println("Read from DB: " + rs.getInt(2));
+       				 }
 			schemaName = connection.getSchema();
 		} catch (Exception e) {
 			
