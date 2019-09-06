@@ -19,12 +19,12 @@ public class ChatBotHookController {
 		String schemaName = "welcome";
 		DataBaseConnection db= new DataBaseConnection();
 		try {
-			Connection connection = db.getConnection();
+			schemaName = db.getConnection();
 			//schemaName = connection.getSchema();
 		} catch (URISyntaxException | SQLException e) {
 			//schemaName =e.getMessage();
 		}
-		return new ResponseEntity<String>("Default controller is Listening schemaName is:"+db.hashCode(), HttpStatus.OK);
+		return new ResponseEntity<String>("Default controller is Listening schemaName is:"+schemaName, HttpStatus.OK);
 	}
 }
 //https://messengerdevelopers.com/resources/messaging
