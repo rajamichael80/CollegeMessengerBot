@@ -20,13 +20,12 @@ public class ChatBotHookController {
 		try {
 			connection = DataBaseConnection.getConnection();
 			Statement stmt = connection.createStatement();
-      			  stmt.executeUpdate("DROP TABLE IF EXISTS ticks");
-       			 int i =  stmt.executeUpdate("CREATE TABLE ticks (tick timestamp)");
+       			 int i =  stmt.executeUpdate("CREATE TABLE COMPANY(ID INT PRIMARY KEY  NOT NULL,NAME  TEXT NOT NULL)");
 			System.out.println("table status:"+i);
-      			  stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-      				  ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+      			  stmt.executeUpdate("INSERT INTO COMPANY VALUES (1,'Raj')");
+      			  ResultSet rs = stmt.executeQuery("SELECT tick COMPANY ticks");
 			  int size = rs.getFetchSize();
-	  System.out.println("Total Record Size = "+size);
+	 		 System.out.println("Total Record Size = "+size);
         			while (rs.next()) {
         		    System.out.println("Read from DB: " + rs.getTimestamp("tick"));
        				 }
