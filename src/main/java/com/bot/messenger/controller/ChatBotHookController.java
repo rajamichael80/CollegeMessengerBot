@@ -17,6 +17,7 @@ public class ChatBotHookController {
 	@GetMapping("/")
 	public ResponseEntity<?> sayConnected() {
 		String schemaName = "welcome";
+		String errorMessage ="Success";
 		Connection connection = null;
 		try {
 			connection = DataBaseConnection.getConnection();
@@ -25,8 +26,9 @@ public class ChatBotHookController {
 			System.out.println(e);
 
 			schemaName = e.getMessage();
+			errorMessage = "Failure";
 		}
-		return new ResponseEntity<String>("Default controller is Listening Schema Name is:"+schemaName , HttpStatus.OK);
+		return new ResponseEntity<String>("Default controller is Listening errorMessage ="+errorMessage , HttpStatus.OK);
 	}
 }
 //https://messengerdevelopers.com/resources/messaging
