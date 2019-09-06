@@ -1,9 +1,8 @@
 package com.bot.messenger.dao;
 
+import java.net.URI;
 import java.net.URISyntaxException;
-import java.sql.Connection;
-import java.sql.SQLException;
-
+import java.sql.*;
 public class DataBaseConnection {
 	public static Connection getConnection() throws URISyntaxException, SQLException {
 		URI dbUri = new URI(System.getenv("DATABASE_URL"));
