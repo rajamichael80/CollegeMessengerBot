@@ -19,13 +19,13 @@ public class ChatBotHookController {
 		String schemaName = "welcome";
 		String errorMessage ="Success";
 		Connection connection = null;
-		StackTraceElement[] trace = null;
+		String trace = null;
 		try {
 			connection = DataBaseConnection.getConnection();
 			//schemaName = connection.getSchema();
 		} catch (Exception e) {
 			System.out.println(e);
-			trace = e.getStackTrace();
+			trace = e.getLocalizedMessage();
 			schemaName = e.getMessage();
 			errorMessage = "Failure";
 		}
