@@ -20,7 +20,7 @@ public class ChatBotHookController {
 		DataBaseConnection db= new DataBaseConnection();
 		try {
 			Connection connection = db.getConnection();
-			schemaName = connection.getSchema();
+			//schemaName = connection.getSchema();
 		} catch (URISyntaxException | SQLException e) {
 			//schemaName =e.getMessage();
 		}
