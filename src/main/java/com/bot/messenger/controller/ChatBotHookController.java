@@ -20,6 +20,14 @@ public class ChatBotHookController {
 		Connection connection = null;
 		try {
 			connection = DataBaseConnection.getConnection();
+			Statement stmt = connection.createStatement();
+      			  stmt.executeUpdate("DROP TABLE IF EXISTS ticks");
+       			 stmt.executeUpdate("CREATE TABLE ticks (tick timestamp)");
+      			  stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
+      				  ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
+        			while (rs.next()) {
+        		    System.out.println("Read from DB: " + rs.getTimestamp("tick"));
+       				 }
 			schemaName = connection.getSchema();
 		} catch (Exception e) {
 			
