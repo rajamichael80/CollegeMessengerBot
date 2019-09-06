@@ -14,7 +14,7 @@ public class DataBaseConnection {
 		 * dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() +
 		 * "?sslmode=require";
 		 */
-	    //return DriverManager.getConnection(dbUrl, username, password);
+	    // return DriverManager.getConnection(dbUrl, username, password);
 		return null;
 	}
 }
