@@ -22,7 +22,7 @@ public class ChatBotHookController {
 			Connection connection = db.getConnection();
 			schemaName = connection.getSchema();
 		} catch (URISyntaxException | SQLException e) {
-			e.printStackTrace();
+			schemaName =e.getMessage();
 		}
 		return new ResponseEntity<String>("Default controller is Listening schemaName is:"+schemaName, HttpStatus.OK);
 	}
