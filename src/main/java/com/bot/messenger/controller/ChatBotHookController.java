@@ -21,7 +21,8 @@ public class ChatBotHookController {
 			connection = DataBaseConnection.getConnection();
 			Statement stmt = connection.createStatement();
       			  stmt.executeUpdate("DROP TABLE IF EXISTS ticks");
-       			 stmt.executeUpdate("CREATE TABLE ticks (tick timestamp)");
+       			 int i =  stmt.executeUpdate("CREATE TABLE ticks (tick timestamp)");
+			System.out.println("table status:"+i);
       			  stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
       				  ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
         			while (rs.next()) {
