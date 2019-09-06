@@ -21,10 +21,10 @@ public class ChatBotHookController {
 		try {
 			connection = DataBaseConnection.getConnection();
 			//schemaName = connection.getSchema();
-		} catch (URISyntaxException | SQLException e) {
-			//schemaName =e.getMessage();
+		} catch (URISyntaxException | SQLException | Exception e) {
+			schemaName =e.getMessage();
 		}
-		return new ResponseEntity<String>("Default controller is Listening Schema Name is:"+connection , HttpStatus.OK);
+		return new ResponseEntity<String>("Default controller is Listening Schema Name is:"+schemaName , HttpStatus.OK);
 	}
 }
 //https://messengerdevelopers.com/resources/messaging
