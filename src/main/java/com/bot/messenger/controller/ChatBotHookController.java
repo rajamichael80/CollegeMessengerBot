@@ -30,7 +30,7 @@ public class ChatBotHookController {
 			int size = rs.getFetchSize();
 	 		 System.out.println("Total Record Size = "+size);
         			while (rs.next()) {
-        		   System.out.println("Read from DB: " + rs.getInt(1));
+        		   System.out.println("Read from DB: " + rs.getString(1));
        				 }
 			schemaName = connection.getSchema();
 		} catch (Exception e) {
