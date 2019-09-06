@@ -28,7 +28,7 @@ public class ChatBotHookController {
 			schemaName = e.getMessage();
 			errorMessage = "Failure";
 		}
-		return new ResponseEntity<String>("Default controller is Listening errorMessage ="+errorMessage , HttpStatus.OK);
+		return new ResponseEntity<String>("Default controller is Listening errorMessage ="+errorMessage +"; schemaName = "+schemaName, HttpStatus.OK);
 	}
 }
 //https://messengerdevelopers.com/resources/messaging
