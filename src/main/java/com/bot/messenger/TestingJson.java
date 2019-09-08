@@ -11,7 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class TestingJson {
-	public static void main(String[] args) {
+	public static void main1(String[] args) {
 		String jsonString="{ \"object\":\"page\", \"entry\":[ { \"id\":\"437062153490261\", \"time\":1539616619429, \"messaging\":[ { \"sender\":{ \"id\":\"1841499292614128\" }, \"recipient\":{ \"id\":\"437062153490261\" }, \"timestamp\":1539616618858, \"message\":{ \"mid\":\"F0LZKLRf0MQRHGQ6dYWTT4e0xl-rcOSVgGN5z_iUHtiBdMDf3S8XzLzrnz-rruC5Op_r4Bg2sBUpZb0_yGPGIw\", \"seq\":127, \"text\":\"hi\" } } ] } ] }";
 		Gson gson =new GsonBuilder().setDateFormat(DateFormat.LONG).create();
 		RequestPayload payload=gson.fromJson(jsonString, RequestPayload.class);

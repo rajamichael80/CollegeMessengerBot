@@ -1,8 +1,7 @@
 package com.bot.messenger.controller;
 
 import java.net.URISyntaxException;
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.*;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,15 +15,31 @@ public class ChatBotHookController {
 
 	@GetMapping("/")
 	public ResponseEntity<?> sayConnected() {
-		String schemaName = "welcome";
+		String schemaName = null;
 		Connection connection = null;
 		try {
 			connection = DataBaseConnection.getConnection();
-			//schemaName = connection.getSchema();
-		} catch (URISyntaxException | SQLException e) {
-			//schemaName =e.getMessage();
+			Statement stmt = connection.createStatement();
+			  stmt.executeUpdate("DROP TABLE IF EXISTS COMPANY");
+			
+			if(!stmt.execute("SELECT to_regclass('public.COMPANY')")){	
+       			 int i =  stmt.executeUpdate("CREATE TABLE COMPANY(CID INT PRIMARY KEY  NOT NULL,NAME  TEXT NOT NULL)");
+			 System.out.println("table status:"+i);
+			}
+      			  stmt.executeUpdate("INSERT INTO COMPANY (CID,NAME) VALUES (2, 'Kumar')");
+      			 	ResultSet rs = stmt.executeQuery("SELECT NAME FROM COMPANY");
+			int size = rs.getFetchSize();
+	 		 System.out.println("Total Record Size = "+size);
+        			while (rs.next()) {
+        		   System.out.println("Read from DB: " + rs.getString(1));
+       				 }
+			schemaName = connection.getSchema();
+		} catch (Exception e) {
+		e.getStackTrace();
+
+		 System.out.println("Error===>"+e.getMessage());	
 		}
-		return new ResponseEntity<String>("Default controller is Listening schemaName is:"+connection, HttpStatus.OK);
+		return new ResponseEntity<String>("Default controller is Listening Schema Name:"+schemaName, HttpStatus.OK);
 	}
 }
 //https://messengerdevelopers.com/resources/messaging
