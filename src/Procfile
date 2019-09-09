@@ -1,3 +1,2 @@
-web: sh target/bin/webapp
-heroku ps:scale web=1
-web: java -cp target/classes:target/dependency
+web: java $JAVA_OPTS -jar target/dependency/jetty-runner.jar --port $PORT target/*.war
+
