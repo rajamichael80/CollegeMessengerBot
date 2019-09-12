@@ -1,7 +1,8 @@
 package com.bot.messenger.controller;
 
-import java.net.URISyntaxException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
