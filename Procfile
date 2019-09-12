@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* welcome
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.bot.messenger.controller.WelcomeController
