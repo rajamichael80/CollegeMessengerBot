@@ -1,1 +1,1 @@
-web: java -cp target/classes:target/dependency/*  com.bot.messenger.controller.WelcomeController
+web: java $JAVA_OPTS -cp target/classes:target/m2e-wtp/*.jar com.bot.messenger.controller.WelcomeController
