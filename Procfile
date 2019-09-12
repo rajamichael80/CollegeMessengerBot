@@ -1,1 +1,1 @@
-web: java -cp target/classes:target/dependency/*  com.bot.messenger.*
+web: java -cp target/classes:target/dependency/*  com.bot.messenger.controller.WelcomeController
