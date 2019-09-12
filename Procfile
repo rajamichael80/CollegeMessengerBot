@@ -1,2 +1,1 @@
-web:    java $JAVA_OPTS -jar target/dependency/webapp-runner.jar --port $PORT --session-store memcache target/*.war
-
+java -jar target/dependency/webapp-runner-7.0.22.jar target/CollegeMessengerBot-0.0.1-SNAPSHOT.war
