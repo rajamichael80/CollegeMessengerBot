@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/m2e-wtp/*.jar com.bot.messenger.controller.WelcomeController
+web: sh target/bin/webapp
