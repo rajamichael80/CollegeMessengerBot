@@ -1,3 +1,3 @@
-java -jar target/dependency/webapp-runner-7.0.22.jar target/CollegeMessengerBot-0.0.1-SNAPSHOT.war
+#web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.bot.messenger.CollegeMessengerBotApplication
 heroku ps:scale web=1
 
