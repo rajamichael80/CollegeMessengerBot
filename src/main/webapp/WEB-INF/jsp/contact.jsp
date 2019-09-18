@@ -7,8 +7,7 @@
 <head>
     <title>Heroku Connect Demo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="../assets/css/bootstrap.css" th:href="@{/assets/css/bootstrap.css}" />
-    <link rel="stylesheet" href="../assets/css/thymeleaf-demo.css" th:href="@{/assets/css/style.css}" />
+    
 </head>
 <body>
 <!--<div style="margin-top: 20px;margin-left: 50px">-->
@@ -18,13 +17,10 @@
 <th><td>Id</td><td>SFID</td><td>First</td><td>Last</td><td>Email</td></th>
 <c:forEach var="contact" items="${contacts}" varStatus="loopCounter" >
 
-<tr th:each="contact : ${contacts}">
+<tr>
     <td></td>
-    <td><c:out value=${contact.id}></c:out></td>
-    <td th:text="${contact.sfid}" >${contact.sfid}</td>
-    <td th:text="${contact.firstName}" >${contact.firstName}</td>
-    <td th:text="${contact.lastName}" >${contact.lastName}</td>
-    <td th:text="${contact.email}" >${contact.email}</td>
+    <td><c:out value="${'Welcome to javaTpoint'}"/>  </td>
+   
 </tr>
 </c:forEach>
 </table>
