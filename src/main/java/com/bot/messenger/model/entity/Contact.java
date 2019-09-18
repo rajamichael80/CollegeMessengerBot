@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
  * @author Rajdeep Dua
  */
 @Entity
-@Table(name = "contact", schema="CollegeInfo")//ame="document_collection", schema="document"
+@Table(name = "contact")//ame="document_collection", schema="document"
 public class Contact {
 
     @Id
