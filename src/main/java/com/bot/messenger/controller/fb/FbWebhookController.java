@@ -26,12 +26,6 @@ import com.bot.messenger.model.fb.Entry;
 import com.bot.messenger.model.fb.Messaging;
 import com.bot.messenger.model.fb.RequestPayload;
 import com.bot.messenger.model.fb.UserDetail;
-import com.bot.messenger.model.kb.ChatResponse;
-import com.bot.messenger.model.kb.Eventdatum;
-import com.bot.messenger.model.kb.MessagePayload;
-import com.bot.messenger.model.kb.NewChatInfo;
-import com.bot.messenger.model.kb.PollResponse;
-import com.bot.messenger.model.kb.Result;
 
 
 
@@ -43,10 +37,7 @@ public class FbWebhookController {
 	private static final String SIGNATURE_HEADER_NAME = "X-Hub-Signature";
 	private static final String ACCESS_TOKEN = "EAAE3uHosZBYMBAJjwfDQTsdRuT2HYhWcZCbjeflFK6d3z0JcMPZCRj57Mp8E4FmZA88eT0ww5kCTZAyYtm9fuvYcLcZBi8G36C26cfJPWseFXqC0skoqUmg60XznLXODCxZBtE4MeCvwuKVXvOLbJPmo1lZAaNdXug9VKit4eaLABZBjTJ8MOt3nZC";
 	private static final String FB_GRAPH_API_URL_MESSAGES = "https://graph.facebook.com/v2.6/me/messages?access_token=%s";
-	private static final String IM_LOGIN_URL = "https://sella.it/sellabot/chatinit?nome=%s&cognome=%s&email=test3@sella.it&CHANNEL=Sella_sito_free";
-	private static final String CHAT_URL="https://sella.it/sellabot/execute/user/chat";
-    private static final String POLL_URL="https://sella.it/sellabot/execute/user/poll";
-
+	
 	private static final Logger logger = LoggerFactory.getLogger(FbWebhookController.class);
 	@GetMapping("/webhook")
 	public ResponseEntity<?> verify(@RequestParam("hub.challenge") String challenge,
@@ -130,86 +121,5 @@ public class FbWebhookController {
 		}
 		logger.info("The requested event Tyepe {}",eventType);
 		return eventType;		
-	}	
-	
-	private ResponseEntity<String> imLogin(final UserDetail userDetail){
-		String url = String.format(IM_LOGIN_URL, userDetail.getFirstName(), userDetail.getLastName());
-		logger.info("IM chat init url>>>>{}", url);		
-		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<String> imLoginResponseEntity = restTemplate.getForEntity(url, String.class);
-		return imLoginResponseEntity;
-	}
-	
-	
-	private String getChatId(String cookieInfo) {		
-		String newChatPayload = "{\"action\":\"newchat\",\"sourceIntentCode\":\"\"}";
-		final RestTemplate restTemplate = new RestTemplate();
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.add("Cookie", cookieInfo);
-		final HttpEntity<String> chatEntity = new HttpEntity<>(newChatPayload, headers);
-		final NewChatInfo newChatInfo = restTemplate.postForEntity(CHAT_URL, chatEntity, NewChatInfo.class).getBody();
-		logger.info("<<<<<<<<ChatId:::{}>>>>>>>",newChatInfo.getChatid());
-		return newChatInfo.getChatid();
-	}
-	
-	private ResponseEntity<ChatResponse> sendImMessage(final String chatId, final String fbMessage, final String cookieInfo) {
-		final MessagePayload messagepayload = new MessagePayload();
-		messagepayload.setAction("chatevent");
-		messagepayload.setIdevent("chatmessage");
-		messagepayload.setChatid(chatId);
-		final Eventdatum eventdatum = new Eventdatum();
-		eventdatum.setName("message");
-		eventdatum.setValue(fbMessage);
-		messagepayload.addEventDatum(eventdatum);
-		logger.info("<<<<<<<<<<<<<<<<messagePayload::{}>>>>>>>>>>>",messagepayload);
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.add("Cookie",cookieInfo);
-		final HttpEntity<MessagePayload> messageEntity = new HttpEntity<>(messagepayload, headers);
-		final RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<ChatResponse> sendMessageResponseEntity = restTemplate.postForEntity(CHAT_URL, messageEntity, ChatResponse.class);
-		return sendMessageResponseEntity;
-	}
-	
-	private void getPollResponse(final String recipientId, String chatId, final String cookieInfo, int totalPolls) {
-		String pollPayload = String.format("{\"chatid\":\"%s\"}", chatId);
-		logger.info("<<<<<<<<<pollpayload::{}>>>>>>>>>>>>>>>", pollPayload);
-		final RestTemplate restTemplate = new RestTemplate();
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.add("Cookie", cookieInfo);
-		HttpEntity<String> pollEntity = new HttpEntity<>(pollPayload, headers);
-		for (int i = 0; i < 5; i++) {
-			PollResponse pollResponse = restTemplate.postForEntity(POLL_URL, pollEntity, PollResponse.class).getBody();
-			logger.info("<<<<<<<<<<<<<poll No.{} =>Total  Results :::{}>>>>>>>>>>>", (i + 1), pollResponse.getResults().size());
-			logger.info("<<<<<<<<<<<<PollResponse Status :::{}>>>>>>>>>>>", pollResponse.getStatus());
-			for (Result result : pollResponse.getResults()) {
-				logger.info("<<<<<<<<<<<<Each Result :::{}>>>>>>>>>>>>>", result);
-				final String answer = result.getAnswer();
-				final String message = result.getMessage();
-				if (answer != null && !answer.isEmpty()) {					
-					String imResponse = String.format("{ \"recipient\": { \"id\": \"%s\" }, \"message\": { \"text\": \"%s\" } }", recipientId, answer);
-					String fbAcknowledgement = sendMessage(imResponse);
-					logger.info("<<<<Answer Acknowledgement of fb:::{}>>>>>",fbAcknowledgement);
-					if (result.getLink() != null && !result.getLink().isEmpty()) {
-						imResponse = String.format("{ \"recipient\":{ \"id\":\"%s\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"open_graph\", \"elements\":[ { \"url\":\"%s\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"https://www.sella.it\", \"title\":\"View More\" } ] } ] } } } }",	recipientId, result.getLink());
-						sendMessage(imResponse);
-						logger.info("<<<<Acknowledgement of fb link:::{}>>>>>",fbAcknowledgement);
-					}
-				}else if(message!=null && !message.isEmpty()) {
-					String imResponse = String.format("{ \"recipient\": { \"id\": \"%s\" }, \"message\": { \"text\": \"%s\" } }", recipientId, message);
-					String fbAcknowledgement = sendMessage(imResponse);
-					logger.info("<<<<Message Acknowledgement of fb:::{}>>>>>",fbAcknowledgement);
-
-				}
-			}
-			try {
-				Thread.sleep(new Long(1000));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
 	}		
-	
 }
