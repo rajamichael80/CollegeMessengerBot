@@ -19,7 +19,7 @@
 
 <tr>
     <td></td>
-    <td><c:out value="${'Welcome to javaTpoint'}"/>  </td>
+    <td><c:out value="${contact}"/>  </td>
    
 </tr>
 </c:forEach>
