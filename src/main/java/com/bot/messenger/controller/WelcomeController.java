@@ -37,8 +37,11 @@ public class WelcomeController {
            c.setLastName("Kumar");
             List<Contact> contacts = null;
             if(repo != null) {
-            	repo.save(c);
+            	c  = repo.save(c);
+                System.out.println("contacts1===>"+c);
+
                 contacts = (List<Contact>) repo.findAll();
+                System.out.println("contacts2===>"+contacts);
                
                 model.addAttribute("contacts", contacts);
             }
