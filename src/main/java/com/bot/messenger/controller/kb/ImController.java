@@ -27,7 +27,7 @@ public class ImController {
 
 	@GetMapping("/im/{message}")
 	public ResponseEntity<?> verify(@PathVariable("message") String message) {
-		String url = "https://sella.it/sellabot/chatinit?nome=nome4&cognome=cognome4&email=test3@sella.it&CHANNEL=Sella_sito_free";
+		String url = "";
 		
 		logger.info("url>>>>{}",url);
 		RestTemplate restTemplate=new RestTemplate();
@@ -43,7 +43,7 @@ public class ImController {
 		
 		HttpHeaders headers=indexHtml.getHeaders();		
 		String cookieInfo=headers.getFirst("Set-Cookie");		
-		final String chatUrl="https://sella.it/sellabot/execute/user/chat";				
+		final String chatUrl="";				
 		
 		String newChatPayload="{\"action\":\"newchat\",\"sourceIntentCode\":\"\"}";
 		restTemplate=new RestTemplate();
@@ -67,7 +67,7 @@ public class ImController {
 		HttpEntity<MessagePayload> messageEntity=new HttpEntity<>(messagepayload,headers);
 		restTemplate.postForEntity(chatUrl, messageEntity, String.class);
 		
-		String pollUrl = "https://sella.it/sellabot/execute/user/poll";
+		String pollUrl = "";
 		String pollPayload = String.format("{\"chatid\":\"%s\"}",newChatInfo.getChatid());
 		
 		
