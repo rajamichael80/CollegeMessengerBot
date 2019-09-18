@@ -18,11 +18,11 @@
 <th><td>Id</td><td>SFID</td><td>First</td><td>Last</td><td>Email</td></th>
 <tr th:each="contact : ${contacts}">
     <td></td>
-    <td th:text="${contact.id}" ></td>
-    <td th:text="${contact.sfid}" ></td>
-    <td th:text="${contact.firstName}" ></td>
-    <td th:text="${contact.lastName}" ></td>
-    <td th:text="${contact.email}" ></td>
+    <td th:text="${contact.id}" >${contact.id}</td>
+    <td th:text="${contact.sfid}" >${contact.sfid}</td>
+    <td th:text="${contact.firstName}" >${contact.firstName}</td>
+    <td th:text="${contact.lastName}" >${contact.lastName}</td>
+    <td th:text="${contact.email}" >${contact.email}</td>
 </tr>
 </table>
 </div>
