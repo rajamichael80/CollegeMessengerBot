@@ -41,7 +41,7 @@ public class FbWebhookController {
 	Map<String, BotSession> botSessionMap = new HashMap<String, BotSession>();
     //https://sella.it/sellabot/chatinit?nome=nome1&cognome=cognome1&email=test@sella.it&CHANNEL=Sella_sito_free
 	private static final String SIGNATURE_HEADER_NAME = "X-Hub-Signature";
-	private static final String ACCESS_TOKEN = "EAAE3uHosZBYMBAJcWWqmeLyuaPLiGsz4E87V7ulT0vfjg6ZCQd5urZCTsweE2yiYUwIAQN3eH9YZAqm2Dnyx5ANe84bfZB3KS0a5HbyYwgiuIbZB6VHLTPJE9cCLlqpxYHLd81k3eu1Rs0UxR2T7Xk4DzQzDvDSH7dPnHHmuRdtoUrh9DSms7x";
+	private static final String ACCESS_TOKEN = "EAAE3uHosZBYMBAJjwfDQTsdRuT2HYhWcZCbjeflFK6d3z0JcMPZCRj57Mp8E4FmZA88eT0ww5kCTZAyYtm9fuvYcLcZBi8G36C26cfJPWseFXqC0skoqUmg60XznLXODCxZBtE4MeCvwuKVXvOLbJPmo1lZAaNdXug9VKit4eaLABZBjTJ8MOt3nZC";
 	private static final String FB_GRAPH_API_URL_MESSAGES = "https://graph.facebook.com/v2.6/me/messages?access_token=%s";
 	private static final String IM_LOGIN_URL = "https://sella.it/sellabot/chatinit?nome=%s&cognome=%s&email=test3@sella.it&CHANNEL=Sella_sito_free";
 	private static final String CHAT_URL="https://sella.it/sellabot/execute/user/chat";
