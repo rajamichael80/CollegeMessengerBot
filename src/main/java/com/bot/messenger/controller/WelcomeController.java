@@ -1,13 +1,22 @@
 package com.bot.messenger.controller;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.bot.messenger.dao.ContactRepository;
+import com.bot.messenger.model.entity.Contact;
 
 @Controller
 public class WelcomeController {
+	@Autowired
+    ContactRepository contactRepository;
 
 	// inject via application.properties
 	@Value("${welcome.message:test}")
@@ -18,5 +27,28 @@ public class WelcomeController {
 		model.put("message", this.message);
 		return "admin";
 	}
+	
+	@RequestMapping("/contacts")
+    public String contacts(Model model) {
+        try {
+            ContactRepository repo = getContactRepository();
+            List<Contact> contacts = null;
+
+            if(repo != null) {
+                contacts = (List<Contact>) repo.findAll();
+                model.addAttribute("contacts", contacts);
+            }
+            return "contact";
+        } catch (Exception e) {
+            model.addAttribute("contacts", new LinkedList());
+            e.printStackTrace();
+        }
+        return "contact";
+    }
+
+	private ContactRepository getContactRepository() {
+
+        return contactRepository;
+    }
 
 }
