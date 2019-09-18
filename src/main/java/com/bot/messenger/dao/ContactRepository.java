@@ -11,5 +11,6 @@ public interface ContactRepository extends CrudRepository<Contact, Long> {
 
     public List<Contact> findById(Integer id);
     public List<Contact> findAll();
+    public Contact save(Contact c);
 
 }

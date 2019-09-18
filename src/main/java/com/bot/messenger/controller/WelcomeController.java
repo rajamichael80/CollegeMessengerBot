@@ -32,10 +32,14 @@ public class WelcomeController {
     public String contacts(Model model) {
         try {
             ContactRepository repo = getContactRepository();
+            Contact c = new Contact();
+           c.setFirstName("Raj");
+           c.setLastName("Kumar");
             List<Contact> contacts = null;
-
             if(repo != null) {
+            	repo.save(c);
                 contacts = (List<Contact>) repo.findAll();
+               
                 model.addAttribute("contacts", contacts);
             }
             return "contact";
