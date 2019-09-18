@@ -16,14 +16,17 @@
 <h3> Salesforce Contacts : </h3>
 <table>
 <th><td>Id</td><td>SFID</td><td>First</td><td>Last</td><td>Email</td></th>
+<c:forEach var="contact" items="${contacts}" varStatus="loopCounter" >
+
 <tr th:each="contact : ${contacts}">
     <td></td>
-    <td th:text="${contact.id}" >${contact.id}</td>
+    <td><c:out value=${contact.id}></c:out></td>
     <td th:text="${contact.sfid}" >${contact.sfid}</td>
     <td th:text="${contact.firstName}" >${contact.firstName}</td>
     <td th:text="${contact.lastName}" >${contact.lastName}</td>
     <td th:text="${contact.email}" >${contact.email}</td>
 </tr>
+</c:forEach>
 </table>
 </div>
 </body>
