@@ -17,7 +17,7 @@
 			<h3>College Information System</h3>
 		</div>
 		<div class="nav">
-			<div class="admin">
+			<div class="login">
 				<form:form id="loginForm" modelAttribute="admin" action="loginProcess" method="post">
 					<form:input path="username" name="username" placeholder="Username" id="username" />
 					<form:input path="password" name="password"
