@@ -11,7 +11,6 @@
 <title>Admin Login form</title>
 </head>
 <body>
-
 	<div class="wrap">
 		<div class="header">
 			<h3>College Information System</h3>
@@ -27,7 +26,6 @@
 			</div>
 		</div>
 		<div class="container"></div>
-
 	</div>
 </body>
 </html>
