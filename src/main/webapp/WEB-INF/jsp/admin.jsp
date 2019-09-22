@@ -23,8 +23,9 @@
 						placeholder="Password" id="password" />
 					<form:button id="login-admin" name="login" >Login</form:button>
 				</form:form>
+			<span style="color:white;margin-left:40px">${message}</span>
+				
 			</div>
-			<span>${message}</span>
 			
 		</div>
 		<div class="container"></div>
