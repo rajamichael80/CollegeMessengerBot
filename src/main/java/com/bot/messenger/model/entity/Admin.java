@@ -1,6 +1,17 @@
-package com.bot.messenger.model.fb;
+package com.bot.messenger.model.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "contact")
 public class Admin {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private int adminId;
 	private String username;
 	private String password;
 
