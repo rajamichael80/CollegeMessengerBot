@@ -42,6 +42,8 @@ public class AdminController {
 	    mav = new ModelAndView("userDetails");
 		IUserService userService = new UserService();
 		List<User> users = userService.getUserDetails();
+		logger.info("<<<<<<<<<user details>>>>>>>>>>", users);
+
 		logger.info("<<<<<<<<<users>>>>>>>>>>", users);
 		mav.addObject("users",users);
 	    } else {
