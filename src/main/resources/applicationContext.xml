@@ -8,8 +8,7 @@
                 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
                 http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd">
 
-    <!-- Directory to scan for repository classes -->
-    <jpa:repositories base-package="com.bot.messenger.dao" />
+    <jpa:repositories base-package="com.bot.messenger" />
 <!--DATABASE_URL:
 postgres://username:password@ec2-107-20-136-89.compute-1.amazonaws.com:5432/
 database
