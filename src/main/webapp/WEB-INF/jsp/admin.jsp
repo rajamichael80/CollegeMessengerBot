@@ -21,7 +21,7 @@
 					<form:input path="username" name="username" placeholder="Username" id="username" />
 					<form:input path="password" name="password"
 						placeholder="Password" id="password" />
-					<form:button id="login" name="login">Login</form:button>
+					<form:button id="login-admin" name="login" >Login</form:button>
 				</form:form>
 			</div>
 		</div>
