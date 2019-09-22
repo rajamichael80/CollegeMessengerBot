@@ -5,12 +5,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.bot.messenger.model.entity.Contact;
+import com.bot.messenger.model.entity.User;
 
 @Repository
-public interface ContactRepository extends CrudRepository<Contact, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
 
-    public List<Contact> findById(Integer id);
-    public List<Contact> findAll();
-    public Contact save(Contact c);
+    //public List<User> findById(Integer userId);
+    public List<User> findAll();
+    public User save(User c);
 
 }

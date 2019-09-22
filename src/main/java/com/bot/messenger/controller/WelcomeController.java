@@ -10,13 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bot.messenger.dao.ContactRepository;
-import com.bot.messenger.model.entity.Contact;
+import com.bot.messenger.dao.UserRepository;
+import com.bot.messenger.model.entity.User;
 
 @Controller
 public class WelcomeController {
 	@Autowired
-    ContactRepository contactRepository;
+    UserRepository userRepository;
 
 	// inject via application.properties
 	@Value("${welcome.message:test}")
@@ -31,19 +31,18 @@ public class WelcomeController {
 	@RequestMapping("/contacts")
     public String contacts(Model model) {
         try {
-            ContactRepository repo = getContactRepository();
-            Contact c = new Contact();
-           c.setFirstName("Raj");
-           c.setLastName("Kumar");
-            List<Contact> contacts = null;
+           UserRepository repo = getContactRepository();
+            User user = new User();
+         
+            List<User> users = null;
             if(repo != null) {
-            	c  = repo.save(c);
-                System.out.println("contacts1===>"+c);
+            	user  = repo.save(user);
+                System.out.println("contacts1===>"+user);
 
-                contacts = (List<Contact>) repo.findAll();
-                System.out.println("contacts2===>"+contacts);
+                users = (List<User>) repo.findAll();
+                System.out.println("contacts2===>"+user);
                
-                model.addAttribute("contacts", contacts);
+                model.addAttribute("contacts", users);
             }
             return "contact";
         } catch (Exception e) {
@@ -53,9 +52,9 @@ public class WelcomeController {
         return "contact";
     }
 
-	private ContactRepository getContactRepository() {
+	private UserRepository getContactRepository() {
 
-        return contactRepository;
+        return userRepository;
     }
 
 }

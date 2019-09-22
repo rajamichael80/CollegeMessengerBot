@@ -1,6 +1,7 @@
 package com.bot.messenger.model.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
@@ -18,7 +19,7 @@ import javax.persistence.TemporalType;
 public class Contact {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     public String getSfid() {

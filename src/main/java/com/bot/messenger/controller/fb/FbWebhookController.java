@@ -22,10 +22,13 @@ import org.springframework.web.client.RestTemplate;
 import com.bot.messenger.BotSession;
 import com.bot.messenger.JsonUtil;
 import com.bot.messenger.QnaResponse1;
+import com.bot.messenger.model.entity.User;
 import com.bot.messenger.model.fb.Entry;
 import com.bot.messenger.model.fb.Messaging;
 import com.bot.messenger.model.fb.RequestPayload;
 import com.bot.messenger.model.fb.UserDetail;
+import com.bot.messenger.service.IUserService;
+import com.bot.messenger.service.UserService;
 
 
 
@@ -60,6 +63,8 @@ public class FbWebhookController {
 		final String recipientId = reqPayload.getEntry().get(0).getMessaging().get(0).getRecipient().getId();
 		logger.info("<<<<<<<<<<senderId>>>>{},RecipientId>>>{}>>>>>>>>>>>>>>>", senderId, recipientId);
 		final UserDetail userDetail = getUserDetail(senderId);
+		IUserService userService = new UserService();
+		userService.saveUser(userDetail);
 		String eventType=getEventType(reqPayload);	
 		for (Entry entry : reqPayload.getEntry()) {
 			for (Messaging messaging : entry.getMessaging()) {
