@@ -15,10 +15,12 @@
 		  <h3>College Information System</h3>
 		</div>
 		<div class="nav">
-			<div class="login">
-			<input type="text" placeholder="Username" id="username">  
-			<input type="password" placeholder="Password" id="password">  
-			<input type="submit" value="Login">
+			<div class="admin">
+			<form:form id="loginForm" modelAttribute="login" action="loginProcess" method="post">
+			<form:input path="username" name="username" placeholder="Username" id="username"/>  
+			 <form:password path="password" name="password" placeholder="Password" id="password"/>  
+			<form:button id="login" name="login">Login</form:button>
+			</form:form>
 			</div>
 		</div>
 		<div class="container"></div>
