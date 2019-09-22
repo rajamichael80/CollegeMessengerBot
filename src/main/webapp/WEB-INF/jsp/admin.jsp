@@ -19,9 +19,8 @@
 		<div class="nav">
 			<div class="admin">
 				<form:form id="loginForm" modelAttribute="admin" action="loginProcess" method="post">
-					<form:input path="username" name="username" placeholder="Username"
-						id="username" />
-					<form:password path="password" name="password"
+					<form:input path="username" name="username" placeholder="Username" id="username" />
+					<form:input path="password" name="password"
 						placeholder="Password" id="password" />
 					<form:button id="login" name="login">Login</form:button>
 				</form:form>
