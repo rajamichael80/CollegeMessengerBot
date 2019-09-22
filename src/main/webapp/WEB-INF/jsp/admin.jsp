@@ -24,6 +24,8 @@
 					<form:button id="login-admin" name="login" >Login</form:button>
 				</form:form>
 			</div>
+			<span>${message}</span>
+			
 		</div>
 		<div class="container"></div>
 	</div>
