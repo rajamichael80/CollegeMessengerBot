@@ -18,8 +18,7 @@
 		</div>
 		<div class="nav">
 			<div class="admin">
-				<form:form id="loginForm" modelAttribute="login"
-					action="loginProcess" method="post">
+				<form:form id="loginForm" modelAttribute="admin" action="loginProcess" method="post">
 					<form:input path="username" name="username" placeholder="Username"
 						id="username" />
 					<form:password path="password" name="password"
