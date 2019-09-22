@@ -2,7 +2,6 @@ package com.bot.messenger.model.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,7 +9,7 @@ import javax.persistence.Table;
 @Table(name = "user")
 public class User {
 	@Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue
 	private int userId;
 	private String firstName;
 	private String lastName;
