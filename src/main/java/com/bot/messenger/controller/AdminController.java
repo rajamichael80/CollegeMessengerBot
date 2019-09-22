@@ -25,8 +25,11 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
+		logger.info("----inside showLogin------");
+		
 		ModelAndView mav = new ModelAndView("admin");
 		mav.addObject("admin", new Admin());
+		
 		return mav;
 	}
 	
