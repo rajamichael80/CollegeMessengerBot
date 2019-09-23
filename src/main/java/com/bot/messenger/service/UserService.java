@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.bot.messenger.controller.AdminController;
 import com.bot.messenger.dao.UserRepository;
 import com.bot.messenger.model.entity.User;
 import com.bot.messenger.model.fb.UserDetail;
