@@ -65,10 +65,12 @@ public class FbWebhookController {
 		IUserService userService = new UserService();
 		
 		try {
+			logger.info("save user try catch");
 			userService.saveUser(userDetail);
 		} catch (Exception e) {
-			logger.info("thiS is the error demo bot caught::{}", e.getMessage(), e);
+			logger.info("thiS is the save user::{}", e.getMessage(), e);
 		}
+		logger.info("try end");
 		String eventType=getEventType(reqPayload);	
 		for (Entry entry : reqPayload.getEntry()) {
 			for (Messaging messaging : entry.getMessaging()) {
