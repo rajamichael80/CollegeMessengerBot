@@ -5,11 +5,13 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.bot.messenger.dao.UserRepository;
 import com.bot.messenger.model.entity.User;
 import com.bot.messenger.model.fb.UserDetail;
 
+@Service
 public class UserService implements IUserService{
 	private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
