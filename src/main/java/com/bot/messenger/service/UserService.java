@@ -29,7 +29,6 @@ public class UserService implements IUserService{
 	@Override
 	public List<User> getUserDetails() {
 		logger.debug("---inside getUserDetails -----");
-
 		return userRepository.findAll();
 	}
 	
