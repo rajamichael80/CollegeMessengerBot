@@ -65,7 +65,7 @@ public class FbWebhookController {
 		IUserService userService = new UserService();
 		
 		try {
-			logger.info("save user try catch");
+			logger.info("save user try catch::{}",userService);
 			userService.saveUser(userDetail);
 		} catch (Exception e) {
 			logger.info("thiS is the save user::{}", e.getMessage(), e);
