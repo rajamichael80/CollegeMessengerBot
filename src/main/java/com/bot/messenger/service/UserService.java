@@ -22,17 +22,20 @@ public class UserService implements IUserService{
 	
 	@Override
 	public void saveUser(UserDetail userDetail) {
+		System.out.println("-------userRepository-----"+userRepository);
+
 		logger.debug("---inside save user -----");
 		User user = new User();
 		user.setFirstName(userDetail.getFirstName());
 		user.setLastName(userDetail.getLastName());
-		userRepository.save(user);
+		User u = userRepository.save(user);
+		System.out.println("-------u-----"+u);
 	}
 
 	@Override
 	public List<User> getUserDetails() {
 		logger.debug("---inside getUserDetails -----");
-		return userRepository.findAll();
+		return (List<User>) userRepository.findAll();
 	}
 	
 	
