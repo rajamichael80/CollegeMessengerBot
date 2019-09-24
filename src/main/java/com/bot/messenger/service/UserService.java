@@ -30,7 +30,7 @@ public class UserService implements IUserService{
 		user.setFirstName("A");
 		user.setLastName("B");
 		User u = userRepository.save(user);
-		System.out.println("-------u-----"+u);
+		System.out.println("-----u------"+u);
 	}
 
 	@Override
