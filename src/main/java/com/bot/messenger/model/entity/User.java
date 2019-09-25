@@ -13,18 +13,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "primarykey", nullable = false, insertable = true, updatable = false)
 
-	private int id;
+	private Long id;
 	@Column(name = "firstname")
 	private String firstName;
 	@Column(name = "lastname")
 	private String lastName;
 
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
