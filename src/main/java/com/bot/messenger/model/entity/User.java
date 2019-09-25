@@ -11,16 +11,17 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(columnDefinition = "serial")
-	private int userId;
+	private int id;
 	private String firstName;
 	private String lastName;
 
-	public int getUserId() {
-		return userId;
+	
+	public int getId() {
+		return id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {
