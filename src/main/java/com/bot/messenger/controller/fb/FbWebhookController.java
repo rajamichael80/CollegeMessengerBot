@@ -121,6 +121,7 @@ public class FbWebhookController {
 		String url = String.format(formattedUrl, senderId + "?fields=first_name,last_name,profile_pic&", ACCESS_TOKEN);
 		RestTemplate restTemplate=new RestTemplate();	
 		UserDetail userDetail = restTemplate.getForObject(url, UserDetail.class);
+		userDetail.setId(senderId);
 		return userDetail;
 	}
 	
