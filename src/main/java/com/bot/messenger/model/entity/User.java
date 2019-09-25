@@ -11,8 +11,6 @@ import javax.persistence.Table;
 public class User {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "primarykey", nullable = false, insertable = true, updatable = false)
-
 	private Long id;
 	@Column(name = "firstname")
 	private String firstName;
