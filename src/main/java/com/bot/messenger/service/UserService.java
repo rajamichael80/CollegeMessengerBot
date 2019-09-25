@@ -26,8 +26,8 @@ public class UserService implements IUserService{
 		logger.debug("---inside save user -----");
 		User user = new User();
 		//user.setId(1L);
-		user.setFirstName("A");
-		user.setLastName("B");
+		user.setFirstName(userDetail.gerFirstName());
+		user.setLastName(userDetail.getLastName());
 		User u = userRepository.save(user);
 		System.out.println("-----u------"+u);
 	}
