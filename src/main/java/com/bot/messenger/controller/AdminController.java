@@ -29,33 +29,33 @@ public class AdminController {
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
 		logger.info("----inside showLogin------");
-		
+
 		ModelAndView mav = new ModelAndView("admin");
 		mav.addObject("admin", new Admin());
-		
+
 		return mav;
 	}
-	
-	@RequestMapping(value = "/loginProcess", method = RequestMethod.POST)
-	  public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
-	  @ModelAttribute("admin") Admin admin) {
-	    ModelAndView mav = null;
-	   // User user = userService.validateUser(login);
-	    if (admin.getUsername().equals("admin")) {
-	    mav = new ModelAndView("userDetails");
-		List<User> users = userService.getUserDetails();
-		List<User> userDetails =new ArrayList<>();
-		if(users!=null) {
-		userDetails = users.stream().distinct().collect(Collectors.toList());
-		}
-		logger.info("<<<<<<<<<user details>>>>>>>>>>::::{}", userDetails);
 
-		mav.addObject("users",userDetails);
-	    } else {
-	    mav = new ModelAndView("admin");
-	    mav.addObject("message", "Username or Password is wrong!!");
-	    }
-	    return mav;
-	  }
-	
+	@RequestMapping(value = "/loginProcess", method = RequestMethod.POST)
+	public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
+			@ModelAttribute("admin") Admin admin) {
+		ModelAndView mav = null;
+		// User user = userService.validateUser(login);
+		if (admin.getUsername().equals("admin")) {
+			mav = new ModelAndView("userDetails");
+			List<User> users = userService.getUserDetails();
+			List<User> userDetails = new ArrayList<>();
+			if (users != null) {
+				userDetails = users.stream().distinct().collect(Collectors.toList());
+			}
+			logger.info("<<<<<<<<<user details>>>>>>>>>>::::{}", userDetails);
+
+			mav.addObject("users", userDetails);
+		} else {
+			mav = new ModelAndView("admin");
+			mav.addObject("message", "Username or Password is wrong!!");
+		}
+		return mav;
+	}
+
 }

@@ -23,7 +23,7 @@
 				<th>LastName</th>
 				<th>SenderId</th>
 
-				<c:forEach var="user" items="${userDetails}">
+				<c:forEach var="user" items="${users}">
 					<tr>
 						<td><c:out value="${user.id}"/></td>
 						<td><c:out value="${user.firstName}"/></td>
