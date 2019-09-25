@@ -19,13 +19,12 @@ public class UserService implements IUserService{
 
 	@Autowired
     UserRepository userRepository;
-	@Autowired User user;
 	@Override
 	public void saveUser(UserDetail userDetail) {
 		System.out.println("-------userRepository-----"+userRepository);
 
 		logger.debug("---inside save user -----");
-		//User user = new User();
+		User user = new User();
 		user.setId(1);
 		user.setFirstName("A");
 		user.setLastName("B");
