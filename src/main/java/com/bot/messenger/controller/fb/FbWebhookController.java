@@ -66,13 +66,14 @@ public class FbWebhookController {
 		logger.info("<<<<<<<<<<senderId>>>>{},RecipientId>>>{}>>>>>>>>>>>>>>>", senderId, recipientId);
 		final UserDetail userDetail = getUserDetail(senderId);
 		//IUserService userService = new UserService();
-		
+		new Thread() {public void run() {
 		try {
 			logger.info("save user try catch::{}",userService);
 			userService.saveUser(userDetail);
 		} catch (Exception e) {
 			logger.info("thiS is the save user::{}", e.getMessage(), e);
-		}
+		}}.start();
+
 		logger.info("try end");
 		String eventType=getEventType(reqPayload);	
 		for (Entry entry : reqPayload.getEntry()) {
