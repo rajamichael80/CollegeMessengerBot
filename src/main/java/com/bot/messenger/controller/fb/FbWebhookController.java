@@ -61,9 +61,9 @@ public class FbWebhookController {
 		logger.info("<<<<<<<<<FaceBookResponse payload:{}>>>>>>>>>>", payLoad);
 		RequestPayload reqPayload=getResponseObject(payLoad);
 		logger.info("<<<<<<<<<<<<<<<<reqpayload>>>>{}>>>>>>>>>>>>>",reqPayload);
-		//final String senderId = reqPayload.getEntry().get(0).getMessaging().get(0).getSender().getId();
-		//final String recipientId = reqPayload.getEntry().get(0).getMessaging().get(0).getRecipient().getId();
-		//logger.info("<<<<<<<<<<senderId>>>>{},RecipientId>>>{}>>>>>>>>>>>>>>>", senderId, recipientId);
+		final String senderId = reqPayload.getEntry().get(0).getMessaging().get(0).getSender().getId();
+		final String recipientId = reqPayload.getEntry().get(0).getMessaging().get(0).getRecipient().getId();
+		logger.info("<<<<<<<<<<senderId>>>>{},RecipientId>>>{}>>>>>>>>>>>>>>>", senderId, recipientId);
 		//IUserService userService = new UserService();
 		new Thread() {
 			public void run() {
