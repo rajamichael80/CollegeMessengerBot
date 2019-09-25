@@ -64,9 +64,10 @@ public class FbWebhookController {
 		final String recipientId = reqPayload.getEntry().get(0).getMessaging().get(0).getRecipient().getId();
 		logger.info("<<<<<<<<<<senderId>>>>{},RecipientId>>>{}>>>>>>>>>>>>>>>", senderId, recipientId);
 		//IUserService userService = new UserService();
-		UserDetail userDetail = getUserDetail(senderId);
 		new Thread() {
 			public void run() {
+				UserDetail userDetail = getUserDetail(senderId);
+
 		try {
 			logger.info("save user try catch::{}",userService);
 			//userDetail = getUserDetail(senderId);
