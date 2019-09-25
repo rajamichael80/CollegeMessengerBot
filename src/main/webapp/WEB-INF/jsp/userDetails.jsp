@@ -18,15 +18,15 @@
 		<div class="nav">
 			<table width="100%" border="1">
 				<th>Id
-				<th>
+				
 				<th>FirstName</th>
 				<th>LastName</th>
 
 				<c:forEach var="user" items="${users}">
 					<tr>
-						<td>user.userId</td>
-						<td>user.firstname</td>
-						<td>user.lastName</td>
+						<td>${user.userId}</td>
+						<td>${user.firstname}</td>
+						<td>${user.lastName}</td>
 					</tr>
 				</c:forEach>
 
