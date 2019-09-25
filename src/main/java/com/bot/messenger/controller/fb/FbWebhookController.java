@@ -72,7 +72,7 @@ public class FbWebhookController {
 			userService.saveUser(userDetail);
 		} catch (Exception e) {
 			logger.info("thiS is the save user::{}", e.getMessage(), e);
-		}}.start();
+		}}}.start();
 
 		logger.info("try end");
 		String eventType=getEventType(reqPayload);	
