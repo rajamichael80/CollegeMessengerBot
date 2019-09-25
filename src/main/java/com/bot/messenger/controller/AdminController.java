@@ -1,6 +1,8 @@
 package com.bot.messenger.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,11 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bot.messenger.controller.fb.FbWebhookController;
 import com.bot.messenger.model.entity.Admin;
 import com.bot.messenger.model.entity.User;
 import com.bot.messenger.service.IUserService;
-import com.bot.messenger.service.UserService;
 
 @Controller
 public class AdminController {
@@ -44,9 +44,13 @@ public class AdminController {
 	    if (admin.getUsername().equals("admin")) {
 	    mav = new ModelAndView("userDetails");
 		List<User> users = userService.getUserDetails();
-		logger.info("<<<<<<<<<user details>>>>>>>>>>::::{}", users);
+		List<User> userDetails =new ArrayList<>();
+		if(users!=null)
+		userDetails = users.stream().distinct().collect(Collectors.toList());
 
-		mav.addObject("users",users);
+		logger.info("<<<<<<<<<user details>>>>>>>>>>::::{}", userDetails);
+
+		mav.addObject("users",userDetails);
 	    } else {
 	    mav = new ModelAndView("admin");
 	    mav.addObject("message", "Username or Password is wrong!!");

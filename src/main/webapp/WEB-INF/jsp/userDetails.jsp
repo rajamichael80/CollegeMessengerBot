@@ -21,12 +21,14 @@
 				
 				<th>FirstName</th>
 				<th>LastName</th>
+				<th>senderId</th>
 
-				<c:forEach var="user" items="${users}">
+				<c:forEach var="user" items="${userDetails}">
 					<tr>
 						<td><c:out value="${user.id}"/></td>
 						<td><c:out value="${user.firstName}"/></td>
 						<td><c:out value="${user.lastName}"/></td>
+						<td><c:out value="${user.senderId}"/></td>
 					</tr>
 				</c:forEach>
 

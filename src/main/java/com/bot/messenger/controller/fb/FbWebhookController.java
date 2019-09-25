@@ -89,8 +89,8 @@ public class FbWebhookController {
 				String senderActionAcknowledge = sendMessage(getSenderActionResonse("mark_seen", senderId));
 				logger.info("<<<<<<<<<<senderActionAcknowledge::::{}>>>>>>>>>>>>", senderActionAcknowledge);
 				senderActionAcknowledge = sendMessage(getSenderActionResonse("typing_on", senderId));
-				logger.info("<<<<<<<<<<<<<senderActionAcknowledge::::{}>>>>>>>>>>>>>>", senderActionAcknowledge);
-				logger.info("<<<<<<<<<<<<<Actual message sending started>>>>>>>>>>>>>>");
+				//logger.info("<<<<<<<<<<<<<senderActionAcknowledge::::{}>>>>>>>>>>>>>>", senderActionAcknowledge);
+				//logger.info("<<<<<<<<<<<<<Actual message sending started>>>>>>>>>>>>>>");
 				try {
 					sendMessage(QnaResponse1.getJsonResponse(senderId, textMessage!=null?textMessage.toLowerCase():"",userDetail));
 

@@ -17,7 +17,8 @@ public class User {
 	private String firstName;
 	@Column(name = "lastname")
 	private String lastName;
-
+	@Column(name = "senderid")
+	private String senderId;
 	
 	public Long getId() {
 		return id;
@@ -43,11 +44,44 @@ public class User {
 		this.lastName = lastName;
 	}
 
+	public String getSenderId() {
+		return senderId;
+	}
+
+	public void setSenderId(String senderId) {
+		this.senderId = senderId;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", senderId=" + senderId + "]";
 	}
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((senderId == null) ? 0 : senderId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (senderId == null) {
+			if (other.senderId != null)
+				return false;
+		} else if (!senderId.equals(other.senderId))
+			return false;
+		return true;
+	}
+
 	
 
 }
