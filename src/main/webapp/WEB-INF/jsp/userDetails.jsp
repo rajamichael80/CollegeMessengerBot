@@ -21,7 +21,7 @@
 				
 				<th>FirstName</th>
 				<th>LastName</th>
-				<th>senderId</th>
+				<th>SenderId</th>
 
 				<c:forEach var="user" items="${userDetails}">
 					<tr>
