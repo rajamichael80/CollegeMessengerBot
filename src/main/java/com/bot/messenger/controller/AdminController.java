@@ -45,9 +45,9 @@ public class AdminController {
 	    mav = new ModelAndView("userDetails");
 		List<User> users = userService.getUserDetails();
 		List<User> userDetails =new ArrayList<>();
-		if(users!=null)
+		if(users!=null) {
 		userDetails = users.stream().distinct().collect(Collectors.toList());
-
+		}
 		logger.info("<<<<<<<<<user details>>>>>>>>>>::::{}", userDetails);
 
 		mav.addObject("users",userDetails);
