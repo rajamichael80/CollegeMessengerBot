@@ -13,7 +13,7 @@ import com.bot.messenger.model.entity.User;
 import com.bot.messenger.model.fb.UserDetail;
 
 @Service
-@Transactional
+//@Transactional
 public class UserService implements IUserService{
 	private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
