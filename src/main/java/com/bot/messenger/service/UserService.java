@@ -35,7 +35,9 @@ public class UserService implements IUserService{
 	@Override
 	public List<User> getUserDetails() {
 		logger.debug("---inside getUserDetails -----");
-		return (List<User>) userRepository.findAll();
+		List<User> users =  (List<User>) userRepository.findAll();
+		System.out.println("---users---"+users);
+		return users;
 	}
 	
 	
