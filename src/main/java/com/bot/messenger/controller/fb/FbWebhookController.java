@@ -58,15 +58,16 @@ public class FbWebhookController {
 	@PostMapping(path = "/webhook", consumes = "application/json", produces = "application/json")
 	public ResponseEntity<?> getFbMessage(@RequestBody final String payLoad,
 			@RequestHeader(SIGNATURE_HEADER_NAME) final String signature) {
-		logger.info("<<<<<<<<<FaceBookResponse payload:{}>>>>>>>>>>", payLoad);
-		RequestPayload reqPayload=getResponseObject(payLoad);
-		logger.info("<<<<<<<<<<<<<<<<reqpayload>>>>{}>>>>>>>>>>>>>",reqPayload);
-		final String senderId = reqPayload.getEntry().get(0).getMessaging().get(0).getSender().getId();
-		final String recipientId = reqPayload.getEntry().get(0).getMessaging().get(0).getRecipient().getId();
-		logger.info("<<<<<<<<<<senderId>>>>{},RecipientId>>>{}>>>>>>>>>>>>>>>", senderId, recipientId);
+		
 		//IUserService userService = new UserService();
 		new Thread() {
 			public void run() {
+				logger.info("<<<<<<<<<FaceBookResponse payload:{}>>>>>>>>>>", payLoad);
+				RequestPayload reqPayload=getResponseObject(payLoad);
+				logger.info("<<<<<<<<<<<<<<<<reqpayload>>>>{}>>>>>>>>>>>>>",reqPayload);
+				final String senderId = reqPayload.getEntry().get(0).getMessaging().get(0).getSender().getId();
+				final String recipientId = reqPayload.getEntry().get(0).getMessaging().get(0).getRecipient().getId();
+				logger.info("<<<<<<<<<<senderId>>>>{},RecipientId>>>{}>>>>>>>>>>>>>>>", senderId, recipientId);
 				UserDetail userDetail = getUserDetail(senderId);
 				
 
