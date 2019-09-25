@@ -25,8 +25,8 @@
 				<c:forEach var="user" items="${users}">
 					<tr>
 						<td><c:out value="${user.id}"/></td>
-						<td><c:out value="${user.firstname}"/></td>
-						<td><c:out value="${user.lastname}"/></td>
+						<td><c:out value="${user.firstName}"/></td>
+						<td><c:out value="${user.lastName}"/></td>
 					</tr>
 				</c:forEach>
 
