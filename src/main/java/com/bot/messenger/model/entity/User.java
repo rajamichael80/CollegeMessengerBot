@@ -9,8 +9,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user", schema = "collegeapp")
 public class User {
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private int id;
 	@Column(name = "firstname")
