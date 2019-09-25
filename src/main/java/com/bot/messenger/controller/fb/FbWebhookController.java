@@ -28,7 +28,6 @@ import com.bot.messenger.model.fb.Messaging;
 import com.bot.messenger.model.fb.RequestPayload;
 import com.bot.messenger.model.fb.UserDetail;
 import com.bot.messenger.service.IUserService;
-import com.bot.messenger.service.UserService;
 
 
 
@@ -64,15 +63,17 @@ public class FbWebhookController {
 		final String senderId = reqPayload.getEntry().get(0).getMessaging().get(0).getSender().getId();
 		final String recipientId = reqPayload.getEntry().get(0).getMessaging().get(0).getRecipient().getId();
 		logger.info("<<<<<<<<<<senderId>>>>{},RecipientId>>>{}>>>>>>>>>>>>>>>", senderId, recipientId);
-		final UserDetail userDetail = getUserDetail(senderId);
 		//IUserService userService = new UserService();
-		new Thread() {public void run() {
+		UserDetail userDetail = getUserDetail(senderId);
+		new Thread() {
+			public void run() {
 		try {
 			logger.info("save user try catch::{}",userService);
+			//userDetail = getUserDetail(senderId);
 			userService.saveUser(userDetail);
 		} catch (Exception e) {
 			logger.info("thiS is the save user::{}", e.getMessage(), e);
-		}}}.start();
+		}
 
 		logger.info("try end");
 		String eventType=getEventType(reqPayload);	
@@ -94,7 +95,8 @@ public class FbWebhookController {
 				senderActionAcknowledge = sendMessage(getSenderActionResonse("typing_off", senderId));
 				logger.info("senderActionAcknowledge>>>>{}", senderActionAcknowledge);
 			}
-		}		
+		}	
+		}}.start();
 		return new ResponseEntity<String>("Success", HttpStatus.OK);
 	}
 	
