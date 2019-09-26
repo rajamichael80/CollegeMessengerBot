@@ -44,13 +44,13 @@ public class AdminController {
 		if (admin.getUsername().equals("admin")) {
 			mav = new ModelAndView("userDetails");
 			List<User> users = userService.getUserDetails();
-			List<User> userDetails = new ArrayList<>();
-			if (users != null) {
-				userDetails = users.stream().distinct().collect(Collectors.toList());
-			}
-			logger.info("<<<<<<<<<user details>>>>>>>>>>::::{}", userDetails);
+			/*
+			 * List<User> userDetails = new ArrayList<>(); if (users != null) { userDetails
+			 * = users.stream().distinct().collect(Collectors.toList()); }
+			 */
+			logger.info("<<<<<<<<<user details>>>>>>>>>>::::{}", users);
 
-			mav.addObject("users", userDetails);
+			mav.addObject("users", users);
 		} else {
 			mav = new ModelAndView("admin");
 			mav.addObject("message", "Username or Password is wrong!!");
