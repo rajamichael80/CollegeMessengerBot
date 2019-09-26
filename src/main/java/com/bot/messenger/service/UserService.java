@@ -2,6 +2,9 @@ package com.bot.messenger.service;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,9 @@ public class UserService implements IUserService{
 
 	@Autowired
     UserRepository userRepository;
+	@Autowired
+    private EntityManager manager;
+
 	@Override
 	public void saveUser(UserDetail userDetail) {
 		System.out.println("-------userRepository-----"+userRepository);
@@ -28,6 +34,7 @@ public class UserService implements IUserService{
 		user.setFirstName(userDetail.getFirstName());
 		user.setLastName(userDetail.getLastName());
 		user.setSenderId(userDetail.getId());
+		List<User> users = findBySenderId(userDetail.getId());
 		User u = userRepository.save(user);
 		System.out.println("-----u------"+u);
 	}
@@ -38,6 +45,16 @@ public class UserService implements IUserService{
 		List<User> users =  (List<User>) userRepository.findAll();
 		System.out.println("---users---"+users);
 		return users;
+	}
+	
+	public List<User> findBySenderId(String senderId){
+		String sql = "Select * from users where senderid=:senderId";
+		Query query = manager.createNativeQuery(sql);
+		query.setParameter("senderId", senderId);
+		List<User> users = (List<User>)query.getResultList();
+		System.out.println("----users--->"+users);
+		return users;
+		
 	}
 	
 	
