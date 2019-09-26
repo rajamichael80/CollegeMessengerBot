@@ -35,7 +35,7 @@ public class UserService implements IUserService{
 		user.setLastName(userDetail.getLastName());
 		user.setSenderId(userDetail.getId());
 		List<User> users = findBySenderId(userDetail.getId());
-		if(users!=null && users.size()>0) {
+		if(users.size()==0) {
 		User u = userRepository.save(user);
 		System.out.println("-----u------"+u);
 		}
