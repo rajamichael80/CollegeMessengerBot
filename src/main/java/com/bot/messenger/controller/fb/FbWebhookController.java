@@ -92,7 +92,8 @@ public class FbWebhookController {
 				//logger.info("<<<<<<<<<<<<<senderActionAcknowledge::::{}>>>>>>>>>>>>>>", senderActionAcknowledge);
 				//logger.info("<<<<<<<<<<<<<Actual message sending started>>>>>>>>>>>>>>");
 				try {
-					sendMessage(QnaResponse1.getJsonResponse(senderId, textMessage!=null?textMessage.toLowerCase():"",userDetail));
+					QnaResponse1 qnaResponse1 = new QnaResponse1();
+					sendMessage(qnaResponse1.getJsonResponse(senderId, textMessage!=null?textMessage.toLowerCase():"",userDetail));
 
 				}catch(Exception e) {
 					logger.info("thiS is the error demo bot caught::{}",e.getMessage(),e);
