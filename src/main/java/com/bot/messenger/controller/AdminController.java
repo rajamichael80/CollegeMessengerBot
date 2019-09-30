@@ -45,11 +45,6 @@ public class AdminController {
 		ModelAndView mav = null;
 		if (admin.getUsername().equals("admin")) {
 			mav = new ModelAndView("UserInfo");
-			List<User> users = userService.getUserDetails();
-		
-			logger.info("<<<<<<<<<user details>>>>>>>>>>::::{}", users);
-
-			mav.addObject("users", users);
 		} else {
 			mav = new ModelAndView("admin");
 			mav.addObject("message", "Username or Password is wrong!!");
@@ -63,11 +58,11 @@ public class AdminController {
 			@ModelAttribute("admin") Admin admin) {
   		
 		   ModelAndView mav = new ModelAndView("userDetails");
-			List<UserQuestions> userQuestions = userQuestionService.getUserQuestions();
+			List<User> users = userService.getUserDetails();
 		
-			logger.info("<<<<<<<<<userQuestions>>>>>>>>>>::::{}", userQuestions);
+			logger.info("<<<<<<<<<user details>>>>>>>>>>::::{}", users);
 
-			mav.addObject("userQuestions", userQuestions);
+			mav.addObject("users", users);
 			return mav;
 	}
 
