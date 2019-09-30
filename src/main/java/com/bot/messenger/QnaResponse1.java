@@ -5,13 +5,14 @@ import java.io.UnsupportedEncodingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.bot.messenger.model.entity.UserQuestions;
 import com.bot.messenger.model.fb.UserDetail;
 import com.bot.messenger.service.IUserQuestionService;
 import com.bot.messenger.service.IUserService;
 
-
+@Service
 public class QnaResponse1 {
 	private static final Logger logger = LoggerFactory.getLogger(QnaResponse1.class);
 	@Autowired
