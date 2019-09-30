@@ -14,7 +14,7 @@ public class UserQuestionService implements IUserQuestionService{
 	
 	@Override
 	public void saveUser(UserQuestions userQuestions) {
-		System.out.println("===inside savUserQuestions====");
+		System.out.println("===inside savUserQuestions===="+UserQuestionServiceRepository);
 
 		UserQuestions u = UserQuestionServiceRepository.save(userQuestions);
 		System.out.println("===UserQuestions===="+u);
