@@ -23,9 +23,10 @@
 			
 			<td><a href="<c:url value="/userInfo"/>">User Details</a></td>
 					 </form:form>
+					 			<td><a href="<c:url value="/userQuestions"/>">Expected Questions</a></td>
+					 
 		      <form:form action="userQuestions" method="GET">
 			
-			<td><a href="<c:url value="/userQuestions"/>">Expected Questions</a></td>
 			
 			</tr>
      		</table>

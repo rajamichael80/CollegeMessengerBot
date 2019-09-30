@@ -70,6 +70,7 @@ public class AdminController {
 	@RequestMapping(value = "/userQuestions", method = RequestMethod.GET)
 	public ModelAndView getUserQuestions(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("admin") Admin admin) {
+	System.out.println("--inside user Questions--"+userQuestionService);
 		   ModelAndView mav = new ModelAndView("userQuestions");
 			List<UserQuestions> userQuestions = userQuestionService.getUserQuestions();
 			

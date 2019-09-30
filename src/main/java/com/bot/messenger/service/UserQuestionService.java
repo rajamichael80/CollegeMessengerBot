@@ -23,6 +23,8 @@ public class UserQuestionService implements IUserQuestionService{
 
 	@Override
 	public List<UserQuestions> getUserQuestions() {
+		System.out.println("===inside getUserQuestions===="+UserQuestionServiceRepository);
+
 		List<UserQuestions> userQuestions =  (List<UserQuestions>) UserQuestionServiceRepository.findAll();
 		System.out.println("---userQuestions---"+userQuestions);
 		return null;
