@@ -1,8 +1,6 @@
 package com.bot.messenger.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,12 +16,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bot.messenger.model.entity.Admin;
 import com.bot.messenger.model.entity.User;
+import com.bot.messenger.model.entity.UserQuestions;
+import com.bot.messenger.service.IUserQuestionService;
 import com.bot.messenger.service.IUserService;
 
 @Controller
 public class AdminController {
 	@Autowired
 	IUserService userService;
+	@Autowired
+	IUserQuestionService userQuestionService;
+
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
@@ -40,14 +43,10 @@ public class AdminController {
 	public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("admin") Admin admin) {
 		ModelAndView mav = null;
-		// User user = userService.validateUser(login);
 		if (admin.getUsername().equals("admin")) {
-			mav = new ModelAndView("userDetails");
+			mav = new ModelAndView("UserInfo");
 			List<User> users = userService.getUserDetails();
-			/*
-			 * List<User> userDetails = new ArrayList<>(); if (users != null) { userDetails
-			 * = users.stream().distinct().collect(Collectors.toList()); }
-			 */
+		
 			logger.info("<<<<<<<<<user details>>>>>>>>>>::::{}", users);
 
 			mav.addObject("users", users);
@@ -55,6 +54,34 @@ public class AdminController {
 			mav = new ModelAndView("admin");
 			mav.addObject("message", "Username or Password is wrong!!");
 		}
+		return mav;
+	}
+	
+	
+	@RequestMapping(value = "/userInfo", method = RequestMethod.POST)
+	public ModelAndView getUserInfo(HttpServletRequest request, HttpServletResponse response,
+			@ModelAttribute("admin") Admin admin) {
+  		
+		   ModelAndView mav = new ModelAndView("userDetails");
+			List<UserQuestions> userQuestions = userQuestionService.getUserQuestions();
+		
+			logger.info("<<<<<<<<<userQuestions>>>>>>>>>>::::{}", userQuestions);
+
+			mav.addObject("userQuestions", userQuestions);
+			return mav;
+	}
+
+	
+	@RequestMapping(value = "/userQuestions", method = RequestMethod.POST)
+	public ModelAndView getUserQuestions(HttpServletRequest request, HttpServletResponse response,
+			@ModelAttribute("admin") Admin admin) {
+		   ModelAndView mav = new ModelAndView("userQuestions");
+			List<UserQuestions> userQuestions = userQuestionService.getUserQuestions();
+			
+			logger.info("<<<<<<<<<userQuestions>>>>>>>>>>::::{}", userQuestions);
+
+			mav.addObject("userQuestions", userQuestions);
+		
 		return mav;
 	}
 

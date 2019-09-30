@@ -22,7 +22,7 @@ public class UserQuestionService implements IUserQuestionService{
 	}
 
 	@Override
-	public List<UserQuestions> getUserDetails() {
+	public List<UserQuestions> getUserQuestions() {
 		List<UserQuestions> userQuestions =  (List<UserQuestions>) UserQuestionServiceRepository.findAll();
 		System.out.println("---userQuestions---"+userQuestions);
 		return null;
