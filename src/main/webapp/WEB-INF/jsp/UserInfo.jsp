@@ -16,11 +16,17 @@
 			<h3>College Information System</h3>
 		</div>
 		<div class="nav">
-		   <form:form action="userInfo" method="GET">
 		
 			<table width="100%" border="1">
 			<tr>
+		    <form:form action="userInfo" method="GET">
+			
 			<td><a href="<c:url value="/userInfo"/>">User Details</a></td>
+					 </form:form>
+		      <form:form action="userQuestions" method="GET">
+			
+			<td><a href="<c:url value="/userQuestions"/>">Expected Questions</a></td>
+			
 			</tr>
      		</table>
 		 </form:form>

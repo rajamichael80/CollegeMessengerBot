@@ -67,7 +67,7 @@ public class AdminController {
 	}
 
 	
-	@RequestMapping(value = "/userQuestions", method = RequestMethod.POST)
+	@RequestMapping(value = "/userQuestions", method = RequestMethod.GET)
 	public ModelAndView getUserQuestions(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("admin") Admin admin) {
 		   ModelAndView mav = new ModelAndView("userQuestions");
