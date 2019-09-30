@@ -27,7 +27,7 @@ public class UserQuestionService implements IUserQuestionService{
 
 		List<UserQuestions> userQuestions =  (List<UserQuestions>) UserQuestionServiceRepository.findAll();
 		System.out.println("---userQuestions---"+userQuestions);
-		return null;
+		return userQuestions;
 	}
 
 }
