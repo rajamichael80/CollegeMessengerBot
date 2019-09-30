@@ -25,7 +25,7 @@ public class QnaResponse1 {
 					"Hi " + userDetail.getFirstName() + " " + userDetail.getLastName()+", Welcome to New Prince Shri Bhavani College of ENgineering and Technology, How can I help you?");
 			break;		
 		case "course":
-			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Courses\", \"image_url\":\"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"subtitle\":\"Here is cousre details\", \"buttons\":[ { \"type\":\"postback\",  \"title\":\"MCA\" ,\"payload\":\"MCADemo\"}, { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-science.php\", \"title\":\"Information Technology\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] }  ] } } } }";
+			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Courses\", \"image_url\":\"https://udayanbot.herokuapp.com/img/courses_offered.gif\", \"subtitle\":\"Here is cousre details\", \"buttons\":[ { \"type\":\"postback\",  \"title\":\"MCA\" ,\"payload\":\"MCADemo\"}, { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-science.php\", \"title\":\"Information Technology\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] }  ] } } } }";
 		   break;
 		case "time":
 			jsonResponse = String.format("{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s\" } }","College start at 9.00 AM and ends at 4.30PM");
