@@ -137,6 +137,7 @@ public class QnaResponse1 {
 		default:
 			UserQuestions questions = new UserQuestions();
 			questions.setQuestion(requestText);
+			System.out.println("---userQuestionService---"+userQuestionService);
 			userQuestionService.saveUser(questions);
 			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"button\", \"text\":\"I could not understand the request, if you wish I can put you in touch with one of our assistants.\", \"buttons\":[ { \"type\":\"phone_number\", \"title\":\"Contact Number\", \"payload\":\"+390152434600\" } ] } } } }";
 			break; 
