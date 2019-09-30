@@ -16,7 +16,7 @@
 			<h3>College Information System</h3>
 		</div>
 		<div class="nav">
-		   <form:form action="processForm" method="post">
+		   <form:form action="userInfo" method="post">
 		
 			<table width="100%" border="1">
 			<tr>
