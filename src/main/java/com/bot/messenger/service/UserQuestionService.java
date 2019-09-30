@@ -2,18 +2,16 @@ package com.bot.messenger.service;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.bot.messenger.dao.UserQuestionServiceRepository;
 import com.bot.messenger.model.entity.UserQuestions;
-
+@Service
 public class UserQuestionService implements IUserQuestionService{
 	@Autowired
     UserQuestionServiceRepository UserQuestionServiceRepository;
-	@Autowired
-    private EntityManager manager;
+	
 	@Override
 	public void saveUser(UserQuestions userQuestions) {
 		UserQuestions u = UserQuestionServiceRepository.save(userQuestions);
