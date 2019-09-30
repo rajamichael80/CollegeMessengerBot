@@ -15,8 +15,7 @@ import com.bot.messenger.service.UserQuestionService;
 
 public class QnaResponse1 {
 	private static final Logger logger = LoggerFactory.getLogger(QnaResponse1.class);
-	//@Autowired
-	public static final IUserQuestionService userQuestionService = new UserQuestionService() ;
+	
 	public  String getJsonResponse(String senderId, String requestText, UserDetail userDetail) {
 		String jsonResponse = "";		
 		switch (getActualKeyword(requestText)) {
@@ -136,10 +135,7 @@ public class QnaResponse1 {
 			jsonResponse="{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\": { \"attachment\": { \"type\": \"template\", \"payload\": { \"template_type\": \"list\", \"top_element_style\": \"compact\", \"elements\": [ { \"title\": \"Classic T-Shirt Collection\", \"subtitle\": \"See all our colors\", \"image_url\": \"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"buttons\": [ { \"title\": \"View\", \"type\": \"web_url\", \"url\": \"https://www.sella.it/banca-online/privati/conti-e-carte/carte/cirrus-maestro-basic.jsp\", \"messenger_extensions\": true, \"webview_height_ratio\": \"tall\", \"fallback_url\": \"https://www.sella.it/banca-online/privati/index.jsp\" } ] }, { \"title\": \"Classic Wgute T-Shirt\", \"subtitle\": \"See all other colors\", \"default_action\": { \"type\": \"web_url\", \"url\": \"https://www.sella.it/banca-online/privati/index.jsp\", \"messenger_extensions\": false, \"webview_height_ratio\": \"tall\" } }, { \"title\": \"Classic Blue T-Shirt\", \"image_url\": \"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"subtitle\": \"100% Cotton, 200% Comfortable\", \"default_action\": { \"type\": \"web_url\", \"url\": \"https://www.sella.it/banca-online/privati/index.jsp\", \"messenger_extensions\": true, \"webview_height_ratio\": \"tall\", \"fallback_url\": \"https://www.sella.it/banca-online/privati/index.jsp\" }, \"buttons\": [ { \"title\": \"Shop Now\", \"type\": \"web_url\", \"url\": \"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"messenger_extensions\": true, \"webview_height_ratio\": \"tall\", \"fallback_url\": \"https://www.sella.it/banca-online/privati/index.jsp\" } ] }, { \"title\": \"Classic Blue T-Shirt\", \"image_url\": \"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"subtitle\": \"100% Cotton, 200% Comfortable\", \"default_action\": { \"type\": \"web_url\", \"url\": \"https://www.sella.it/banca-online/privati/index.jsp\", \"messenger_extensions\": true, \"webview_height_ratio\": \"tall\", \"fallback_url\": \"https://www.sella.it/banca-online/privati/index.jsp\" }, \"buttons\": [ { \"title\": \"Shop Now\", \"type\": \"web_url\", \"url\": \"https://udayanbot.herokuapp.com/img/hype_bse.gif\", \"messenger_extensions\": true, \"webview_height_ratio\": \"tall\", \"fallback_url\": \"https://www.sella.it/banca-online/privati/index.jsp\" } ] } ], \"buttons\": [ { \"title\": \"View More\", \"type\": \"postback\", \"payload\": \"payload\" } ] } } } }";
 		break;
 		default:
-			UserQuestions questions = new UserQuestions();
-			questions.setQuestion(requestText);
-			System.out.println("---userQuestionService---"+userQuestionService);
-			userQuestionService.saveUser(questions);
+			
 			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"button\", \"text\":\"I could not understand the request, if you wish I can put you in touch with one of our assistants.\", \"buttons\":[ { \"type\":\"phone_number\", \"title\":\"Contact Number\", \"payload\":\"+390152434600\" } ] } } } }";
 			break; 
 		}

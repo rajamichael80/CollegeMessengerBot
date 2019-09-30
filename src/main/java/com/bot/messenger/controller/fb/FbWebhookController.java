@@ -23,10 +23,12 @@ import org.springframework.web.client.RestTemplate;
 import com.bot.messenger.BotSession;
 import com.bot.messenger.JsonUtil;
 import com.bot.messenger.QnaResponse1;
+import com.bot.messenger.model.entity.UserQuestions;
 import com.bot.messenger.model.fb.Entry;
 import com.bot.messenger.model.fb.Messaging;
 import com.bot.messenger.model.fb.RequestPayload;
 import com.bot.messenger.model.fb.UserDetail;
+import com.bot.messenger.service.IUserQuestionService;
 import com.bot.messenger.service.IUserService;
 
 
@@ -36,6 +38,8 @@ import com.bot.messenger.service.IUserService;
 public class FbWebhookController {
 	@Autowired
 	IUserService userService;
+	@Autowired
+	IUserQuestionService userQuestionService;
 	Map<String, BotSession> botSessionMap = new HashMap<String, BotSession>();
 	private static String senderId;
     //https://sella.it/sellabot/chatinit?nome=nome1&cognome=cognome1&email=test@sella.it&CHANNEL=Sella_sito_free
@@ -84,7 +88,7 @@ public class FbWebhookController {
 		String eventType=getEventType(reqPayload);	
 		for (Entry entry : reqPayload.getEntry()) {
 			for (Messaging messaging : entry.getMessaging()) {
-				final String textMessage = eventType.equals("PostbackEvent") ? messaging.getPostback().getPayload()	: messaging.getMessage().getText();
+				String textMessage = eventType.equals("PostbackEvent") ? messaging.getPostback().getPayload()	: messaging.getMessage().getText();
 				logger.info("<<<<<<<<<<<<TextMessage::{},EventyType:::{}>>>>>>>>>>>>>>", textMessage, eventType);
 				String senderActionAcknowledge = sendMessage(getSenderActionResonse("mark_seen", senderId));
 				logger.info("<<<<<<<<<<senderActionAcknowledge::::{}>>>>>>>>>>>>", senderActionAcknowledge);
@@ -93,7 +97,15 @@ public class FbWebhookController {
 				//logger.info("<<<<<<<<<<<<<Actual message sending started>>>>>>>>>>>>>>");
 				try {
 					QnaResponse1 qnaResponse1 = new QnaResponse1();
-					sendMessage(qnaResponse1.getJsonResponse(senderId, textMessage!=null?textMessage.toLowerCase():"",userDetail));
+					textMessage = textMessage!=null?textMessage.toLowerCase():"";
+					String response = qnaResponse1.getJsonResponse(senderId, textMessage,userDetail);
+					UserQuestions questions = new UserQuestions();
+					questions.setQuestion(textMessage);
+					System.out.println("---userQuestionService---"+userQuestionService);
+					if(response!=null && response.contains("I could not understand the request")) {
+					userQuestionService.saveUser(questions);
+					}
+					sendMessage(response);
 
 				}catch(Exception e) {
 					logger.info("thiS is the error demo bot caught::{}",e.getMessage(),e);
