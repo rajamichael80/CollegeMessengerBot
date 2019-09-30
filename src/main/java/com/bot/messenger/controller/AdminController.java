@@ -58,7 +58,7 @@ public class AdminController {
 	}
 	
 	
-	@RequestMapping(value = "/userInfo", method = RequestMethod.POST)
+	@RequestMapping(value = "/userInfo", method = RequestMethod.GET)
 	public ModelAndView getUserInfo(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("admin") Admin admin) {
   		

@@ -16,7 +16,7 @@
 			<h3>College Information System</h3>
 		</div>
 		<div class="nav">
-		   <form:form action="userInfo" method="post">
+		   <form:form action="userInfo" method="GET">
 		
 			<table width="100%" border="1">
 			<tr>
