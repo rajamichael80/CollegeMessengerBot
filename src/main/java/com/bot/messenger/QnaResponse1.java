@@ -11,12 +11,12 @@ import com.bot.messenger.model.entity.UserQuestions;
 import com.bot.messenger.model.fb.UserDetail;
 import com.bot.messenger.service.IUserQuestionService;
 import com.bot.messenger.service.IUserService;
+import com.bot.messenger.service.UserQuestionService;
 
-@Service
 public class QnaResponse1 {
 	private static final Logger logger = LoggerFactory.getLogger(QnaResponse1.class);
-	@Autowired
-	IUserQuestionService userQuestionService;
+	//@Autowired
+	public static final IUserQuestionService userQuestionService = new UserQuestionService() ;
 	public  String getJsonResponse(String senderId, String requestText, UserDetail userDetail) {
 		String jsonResponse = "";		
 		switch (getActualKeyword(requestText)) {
