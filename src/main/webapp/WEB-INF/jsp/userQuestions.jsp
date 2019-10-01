@@ -43,7 +43,6 @@
 			</table>
 
 		</div>
-		<div class="container"></div>
 	</div>
 </body>
 </html>
