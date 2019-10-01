@@ -1,4 +1,4 @@
-table.imagetable {
+table #example {
 	font-family: verdana,arial,sans-serif;
 	font-size:11px;
 	color:#333333;
@@ -6,14 +6,14 @@ table.imagetable {
 	border-color: #999999;
 	border-collapse: collapse;
 }
-table.imagetable th {
+table #example th {
 	background:#b5cfd2 url('cell-blue.jpg');
 	border-width: 1px;
 	padding: 8px;
 	border-style: solid;
 	border-color: #999999;
 }
-table.imagetable td {
+table #example td {
 	background:#dcddc0 url('cell-grey.jpg');
 	border-width: 1px;
 	padding: 8px;
