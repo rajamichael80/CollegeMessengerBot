@@ -28,15 +28,18 @@
 		</div>
 		<div class="nav">
 			<table id="example" class="table table-striped table-bordered">
-				<th>Id
-				<th>Expected Questions</th>
+			<thead>
+				<th th class="th-sm">Id</th>
+				<th th class="th-sm">Expected Questions</th>
+				</thead>
+				<tbody> 
 				<c:forEach var="userQuestion" items="${userQuestions}">
 					<tr>
 						<td><c:out value="${userQuestion.id}" /></td>
 						<td><c:out value="${userQuestion.question}" /></td>
 					</tr>
 				</c:forEach>
-
+			</tbody> 
 			</table>
 
 		</div>
