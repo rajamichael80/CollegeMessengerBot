@@ -7,6 +7,8 @@
 <head>
 <link href="/css/admin.css" rel="stylesheet" type="text/css" />
 <link href="/css/mainPage.css" rel="stylesheet" type="text/css" />
+<link href="/css/tableDesign.css" rel="stylesheet" type="text/css" />
+
 
 <title>Admin Login form</title>
 </head>
@@ -16,7 +18,7 @@
 			<h3>College Information System</h3>
 		</div>
 		<div class="nav">
-			<table width="100%" border="1">
+			<table class="imagetable">
 				<th>Id
 				<th>Expected Questions</th>
 				<c:forEach var="userQuestion" items="${userQuestions}">
