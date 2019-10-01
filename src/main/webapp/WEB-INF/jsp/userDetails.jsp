@@ -9,6 +9,17 @@
 <link href="/css/mainPage.css" rel="stylesheet" type="text/css" />
 <link href="/css/tableDesign.css" rel="stylesheet" type="text/css" />
 
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"	rel="stylesheet" type="text/css" />
+<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css"	rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#example').DataTable();
+	});
+</script>
 <title>Admin Login form</title>
 </head>
 <body>
@@ -17,22 +28,31 @@
 			<h3>College Information System</h3>
 		</div>
 		<div class="nav">
-			<table class="imagetable">
-				<th>Id
-				
-				<th>FirstName</th>
-				<th>LastName</th>
-				<th>SenderId</th>
-
-				<c:forEach var="user" items="${users}">
+			<table id="example" class="table table-striped table-bordered">
+				<thead>
 					<tr>
-						<td><c:out value="${user.id}"/></td>
-						<td><c:out value="${user.firstName}"/></td>
-						<td><c:out value="${user.lastName}"/></td>
-						<td><c:out value="${user.senderId}"/></td>
+						<th class="th-sm">Id</th>
 					</tr>
-				</c:forEach>
-
+					<tr>
+						<th class="th-sm">First Name</th>
+					</tr>
+					<tr>
+						<th class="th-sm">Last Name</th>
+					</tr>
+					<tr>
+						<th class="th-sm">Sender Id</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="user" items="${users}">
+						<tr>
+							<td><c:out value="${user.id}" /></td>
+							<td><c:out value="${user.firstName}" /></td>
+							<td><c:out value="${user.lastName}" /></td>
+							<td><c:out value="${user.senderId}" /></td>
+						</tr>
+					</c:forEach>
+					</tbody>
 			</table>
 
 		</div>

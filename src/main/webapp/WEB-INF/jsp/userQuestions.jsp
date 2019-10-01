@@ -8,7 +8,16 @@
 <link href="/css/admin.css" rel="stylesheet" type="text/css" />
 <link href="/css/mainPage.css" rel="stylesheet" type="text/css" />
 <link href="/css/tableDesign.css" rel="stylesheet" type="text/css" />
-
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"	rel="stylesheet" type="text/css" />
+<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css"	rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#example').DataTable();
+	});
+</script>
 
 <title>Admin Login form</title>
 </head>
@@ -18,7 +27,7 @@
 			<h3>College Information System</h3>
 		</div>
 		<div class="nav">
-			<table class="imagetable">
+			<table id="example" class="table table-striped table-bordered">
 				<th>Id
 				<th>Expected Questions</th>
 				<c:forEach var="userQuestion" items="${userQuestions}">
