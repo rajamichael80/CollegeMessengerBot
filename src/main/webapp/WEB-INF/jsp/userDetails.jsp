@@ -29,19 +29,11 @@
 		</div>
 		<div class="nav">
 			<table id="example" class="table table-striped table-bordered">
-				<thead>
-					<tr>
-						<th class="th-sm">Id</th>
-					</tr>
-					<tr>
-						<th class="th-sm">First Name</th>
-					</tr>
-					<tr>
-						<th class="th-sm">Last Name</th>
-					</tr>
-					<tr>
-						<th class="th-sm">Sender Id</th>
-					</tr>
+					<thead>
+					<th class="th-sm">Id</th>
+					<th class="th-sm">First Name</th>
+					<th class="th-sm">Last Name</th>
+					<th class="th-sm">Sender Id</th>
 				</thead>
 				<tbody>
 					<c:forEach var="user" items="${users}">
