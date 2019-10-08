@@ -26,6 +26,7 @@
 	<div class="wrap">
 		<div class="header">
 			<h3>College Information System</h3>
+			<span><a href="userInfo.jsp">Back to menu</a></span>
 		</div>
 		<div class="nav">
 			<table id="example" class="table table-striped table-bordered">

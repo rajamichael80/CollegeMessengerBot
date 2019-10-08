@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<JSONData>
+    <employeeMap>
+        <entry>
+            <key>hi</key>
+            <value>{"recipient":{"id":"1234"},"message":{"attachment":{"type":"template","payload":{"templateType":"generic","elements":[{"title":"Hi! , Welcome to True Buying","imageUrl":"https://static.tcimg.net/vehicles/primary/dfb65a418bb4d8a0/2019-Porsche-718_Boxster-red-full_color-driver_side_front_quarter.png","buttons":[{"type":"postback","title":"View Offers","payload":"offers"}]}]}}}}</value>
+        </entry>
+        <entry>
+            <key>course</key>
+            <value>{"recipient":{ "id":"recipientId" },"message":{ "attachment":{ "type":"template", "payload":{ "template_type":"generic", "elements":[ { "title":"Courses", "image_url":"https://college-messanger-bot.herokuapp.com/img/courses_offered.gif", "subtitle":"Here is cousre details", "buttons":[ { "type":"postback",  "title":"MCA" ,"payload":"MCADemo"}, { "type":"web_url", "url":"http://www.newprinceshribhavani.com/computer-science.php", "title":"Information Technology" }, { "type":"postback", "title":"Any Other Query", "payload":"call our representative" } ] }  ] } } } }</value>
+        </entry>
+		<entry>
+            <key>time</key>
+            <value>{ "recipient": { "id": "recipientId" }, "message": { "text": "College start at 9.00 AM and ends at 4.30PM" } }</value>
+        </entry>
+	</employeeMap>
+</JSONData>

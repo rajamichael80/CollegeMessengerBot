@@ -25,18 +25,22 @@
 	<div class="wrap">
 		<div class="header">
 			<h3>College Information System</h3>
+		   <span><a href="userInfo.jsp">Back to menu</a></span>
+			
 		</div>
 		<div class="nav">
 			<table id="example" class="table table-striped table-bordered">
 			<thead>
 				<th th class="th-sm">Id</th>
 				<th th class="th-sm">Expected Questions</th>
+				<th></th>
 				</thead>
 				<tbody> 
 				<c:forEach var="userQuestion" items="${userQuestions}">
 					<tr>
 						<td><c:out value="${userQuestion.id}" /></td>
 						<td><c:out value="${userQuestion.question}" /></td>
+						<td><a href="#">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody> 
