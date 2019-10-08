@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <JSONData>
-    <employeeMap>
+    <qnaResponse>
         <entry>
             <key>1</key>
             <value>{"recipient":{"id":"1234"},"message":{"attachment":{"type":"template","payload":{"templateType":"generic","elements":[{"title":"Hi! , Welcome to True Buying","imageUrl":"https://static.tcimg.net/vehicles/primary/dfb65a418bb4d8a0/2019-Porsche-718_Boxster-red-full_color-driver_side_front_quarter.png","buttons":[{"type":"postback","title":"View Offers","payload":"offers"}]}]}}}}</value>
@@ -13,5 +13,5 @@
             <key>5</key>
             <value>five</value>
         </entry>
-    </employeeMap>
+    </qnaResponse>
 </JSONData>
