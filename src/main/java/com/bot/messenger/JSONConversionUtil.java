@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 
 public class JSONConversionUtil {
 
-	public final static File fos = new File("..//..//app//CollegeMessengerBot//src//main//java//com//bot//messenger//JSONFile.xml");
+	public final static File fos = new File("CollegeMessengerBot//src//main//java//com//bot//messenger//JSONFile.xml");
 
 	public static String convertObjectToJson(ResponseMessage responseMessage) {
 		Gson gson = JsonUtil.getInstance();
