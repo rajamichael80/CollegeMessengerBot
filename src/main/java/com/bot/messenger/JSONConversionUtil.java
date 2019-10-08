@@ -26,6 +26,7 @@ public class JSONConversionUtil {
 	}
 
 	public static QnaResponseMap convertXmlToObject() {
+		System.out.println("--FIle path--"+fos.getAbsolutePath());
 		JAXBContext jaxbContext;
 		QnaResponseMap qnaResponseMap = new QnaResponseMap();
 		try {
