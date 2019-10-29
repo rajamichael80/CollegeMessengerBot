@@ -80,5 +80,14 @@ public class AdminController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public ModelAndView backToHome(HttpServletRequest request, HttpServletResponse response,
+			@ModelAttribute("admin") Admin admin) {
+  		
+		   ModelAndView mav = new ModelAndView("UserInfo");
+			return mav;
+	}
+	
 
 }

@@ -25,7 +25,9 @@
 	<div class="wrap">
 		<div class="header">
 			<h3>College Information System</h3>
-		   <span><a href="userInfo.jsp">Back to menu</a></span>
+			 <form:form action="home" method="GET">
+		   <span><a href="<c:url value="/home"/>">Back to menu</a></span>
+		     </form:form>
 			
 		</div>
 		<div class="nav">
