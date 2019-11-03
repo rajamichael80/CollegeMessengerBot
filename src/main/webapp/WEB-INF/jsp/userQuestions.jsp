@@ -31,6 +31,8 @@
 			
 		</div>
 		<div class="nav">
+					 <form:form action="deleteQuestion" method="GET">
+		
 			<table id="example" class="table table-striped table-bordered">
 			<thead>
 				<th th class="th-sm">Id</th>
@@ -42,11 +44,12 @@
 					<tr>
 						<td><c:out value="${userQuestion.id}" /></td>
 						<td><c:out value="${userQuestion.question}" /></td>
-						<td><a href="#">Delete</a></td>
+						<td><a href="deleteQuestion/${userQuestion.id}">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody> 
 			</table>
+			</form:form>
 
 		</div>
 	</div>

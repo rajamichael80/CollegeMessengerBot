@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -88,6 +89,15 @@ public class AdminController {
 		   ModelAndView mav = new ModelAndView("UserInfo");
 			return mav;
 	}
+	
+	@RequestMapping(value="/deleteQuestion/{id}",method = RequestMethod.GET)    
+    public ModelAndView delete(@PathVariable int id){    
+		logger.info("<<<<<<<<<question i>>>>>>>>>>::::{}", id);
+
+		userQuestionService.deleteUser(Long.valueOf(id));
+		   ModelAndView mav = new ModelAndView("userQuestions");
+		   return mav;
+    }     
 	
 
 }
