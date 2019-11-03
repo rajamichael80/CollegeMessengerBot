@@ -38,7 +38,6 @@
 			</form:form>
 		</div>
 		<div class="nav">
-		<form:form action="deleteUser" method="GET">
 		<table id="example" class="table table-striped table-bordered">
 				<thead>
 					<th class="th-sm">Id</th>
@@ -61,7 +60,6 @@
 					</c:forEach>
 				</tbody>
 			</table>
-</form:form>
 		</div>
 	</div>
 </body>

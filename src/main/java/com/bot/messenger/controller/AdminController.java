@@ -98,15 +98,4 @@ public class AdminController {
 	        return "redirect:/userQuestions";    
     }     
 	
-	@RequestMapping(value="/deleteUser/{senderId}",method = RequestMethod.GET)    
-    public String deleteUser(@PathVariable String senderId){    
-		logger.info("<<<<<<<<<user senderId>>>>>>>>>>::::{}", senderId);
-
-		   userService.deleteUser(senderId);
-		   logger.info("<<<<<<<<<success>>>>>>>>>");
-
-	        return "redirect:/userDetails";    
-    }     
-	
-
 }

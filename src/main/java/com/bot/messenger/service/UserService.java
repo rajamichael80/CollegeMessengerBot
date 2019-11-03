@@ -59,13 +59,6 @@ public class UserService implements IUserService{
 		
 	}
 
-	@Override
-	public void deleteUser(String senderId) {
-		List<User> users= findBySenderId(senderId);
-		System.out.println("----delete users--->"+users);
-		userRepository.delete(users.get(0));
-	}
-	
 	
 
 }
