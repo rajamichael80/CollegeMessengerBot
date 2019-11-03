@@ -75,7 +75,7 @@ public class QnaResponse1 {
 		} else if (textSearch.contains("time") || textSearch.contains("timing")) {
 			searchString = "time";
 		} else if (textSearch.contains("thank")) {
-			searchString = "time";
+			searchString = "bye";
 		}
 		
 		logger.info("The actual Search String  is{}", searchString);
