@@ -91,12 +91,11 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/deleteQuestion/{id}",method = RequestMethod.GET)    
-    public ModelAndView delete(@PathVariable Long id){    
+    public String deleteQuestion(@PathVariable Long id){    
 		logger.info("<<<<<<<<<question i>>>>>>>>>>::::{}", id);
 
-		userQuestionService.deleteUser(id);
-		   ModelAndView mav = new ModelAndView("userQuestions");
-		   return mav;
+		   userQuestionService.deleteUser(id);
+	        return "redirect:/userQuestions";    
     }     
 	
 
