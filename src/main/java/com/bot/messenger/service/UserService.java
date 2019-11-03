@@ -61,7 +61,12 @@ public class UserService implements IUserService{
 
 	@Override
 	public void deleteUser(Long id) {
-		userRepository.delete(id);
+		String sql = "Select * from users where id=:id";
+		Query query = manager.createNativeQuery(sql);
+		query.setParameter("id", id);
+		User user = (User) query.getSingleResult();
+		System.out.println("----delete users--->"+user);
+		userRepository.delete(user);
 	}
 	
 	
