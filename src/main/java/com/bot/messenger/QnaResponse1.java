@@ -36,22 +36,19 @@ public class QnaResponse1 {
 			break;
 	
 		case "call our representative":
-			jsonResponse = String.format(
-					"{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s\" } }",
-					"Hi " + userDetail.getFirstName() + " " + userDetail.getLastName()
-							+ ", puoi contattare l'assistenza clienti al numero 800.142.142 (per le chiamate da rete fissa nazionale) oppure al numero 0039.015.24.34.617 (per le chiamate dall'estero e da telefono cellulare) attivi dal luneda al venerda dalle ore 8.00 alle 21.00. Hai bisogno di altre informazioni?");
+			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Contact\", \"image_url\":\"https://college-messanger-bot.herokuapp.com/img/contact.gif\", \"subtitle\":\"Here is cousre details\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/contact.php\", \"title\":\"Contact\" } ] }  ] } } } }";			
 			break;
 		case "bye":
 		case "":
 			jsonResponse = String.format(
 					"{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s\" } }",
-					"Grazie " + userDetail.getFirstName() + " " + userDetail.getLastName()
-							+ ", Speriamo di aver risposto alle tue domamde.  Buona giornata ");
+					"Welcome " + userDetail.getFirstName() + " " + userDetail.getLastName()
+							+ ", Have a nice day ");
 			break;
 
 		default:
 
-			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"button\", \"text\":\"I could not understand the request, if you wish I can put you in touch with one of our assistants.\", \"buttons\":[ { \"type\":\"phone_number\", \"title\":\"Contact Number\", \"payload\":\"+390152434600\" } ] } } } }";
+			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"button\", \"text\":\"I could not understand the request, if you wish I can put you in touch with one of our assistants.\", \"buttons\":[ { \"type\":\"phone_number\", \"title\":\"Contact Number\", \"payload\":\"9104422780404\" } ] } } } }";
 			break;
 		}
 
@@ -77,7 +74,10 @@ public class QnaResponse1 {
 			searchString = "course";
 		} else if (textSearch.contains("time") || textSearch.contains("timing")) {
 			searchString = "time";
+		} else if (textSearch.contains("thank")) {
+			searchString = "time";
 		}
+		
 		logger.info("The actual Search String  is{}", searchString);
 		return searchString.toLowerCase();
 
