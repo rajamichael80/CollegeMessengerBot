@@ -19,7 +19,7 @@
 			<div class="login">
 				<form:form id="loginForm" modelAttribute="admin" action="loginProcess" method="post">
 					<form:input path="username" name="username" placeholder="Username" id="username" />
-					<form:input path="password" name="password"
+					<form:password path="password" name="password"
 						placeholder="Password" id="password" />
 					<form:button id="login-admin" name="login" >Login</form:button>
 				</form:form>
