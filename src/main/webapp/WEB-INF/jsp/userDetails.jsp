@@ -56,6 +56,8 @@
 							<td><c:out value="${user.firstName}" /></td>
 							<td><c:out value="${user.lastName}" /></td>
 							<td><c:out value="${user.senderId}" /></td>
+						    <td><a href="deleteUser/${user.id}">Delete</a></td>
+							
 						</tr>
 					</c:forEach>
 				</tbody>

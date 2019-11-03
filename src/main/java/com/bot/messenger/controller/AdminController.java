@@ -92,7 +92,7 @@ public class AdminController {
 	
 	@RequestMapping(value="/deleteQuestion/{id}",method = RequestMethod.GET)    
     public String deleteQuestion(@PathVariable Long id){    
-		logger.info("<<<<<<<<<question i>>>>>>>>>>::::{}", id);
+		logger.info("<<<<<<<<<question id>>>>>>>>>>::::{}", id);
 
 		   userQuestionService.deleteUserQuestion(id);
 	        return "redirect:/userQuestions";    
@@ -100,7 +100,7 @@ public class AdminController {
 	
 	@RequestMapping(value="/deleteUser/{id}",method = RequestMethod.GET)    
     public String deleteUser(@PathVariable Long id){    
-		logger.info("<<<<<<<<<question i>>>>>>>>>>::::{}", id);
+		logger.info("<<<<<<<<<user id>>>>>>>>>>::::{}", id);
 
 		   userService.deleteUser(id);
 	        return "redirect:/userDetails";    
