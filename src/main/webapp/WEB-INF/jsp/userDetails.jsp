@@ -38,12 +38,16 @@
 			</form:form>
 		</div>
 		<div class="nav">
+		<form:form action="deleteUser" method="GET">
+		
 			<table id="example" class="table table-striped table-bordered">
 				<thead>
 					<th class="th-sm">Id</th>
 					<th class="th-sm">First Name</th>
 					<th class="th-sm">Last Name</th>
 					<th class="th-sm">Sender Id</th>
+					<th class="th-sm"></th>
+					
 				</thead>
 				<tbody>
 					<c:forEach var="user" items="${users}">
@@ -52,11 +56,13 @@
 							<td><c:out value="${user.firstName}" /></td>
 							<td><c:out value="${user.lastName}" /></td>
 							<td><c:out value="${user.senderId}" /></td>
+						    <td><a href="deleteUser/${user.id}">Delete</a></td>
+							
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-
+</form:form>
 		</div>
 	</div>
 </body>

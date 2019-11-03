@@ -10,4 +10,5 @@ public interface IUserService {
 public void saveUser(UserDetail userDetail);
 
 public List<User> getUserDetails();
+public void deleteUser(Long id);
 }

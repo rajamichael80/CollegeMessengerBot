@@ -31,7 +31,7 @@ public class UserQuestionService implements IUserQuestionService{
 	}
 
 	@Override
-	public void deleteUser(Long id) {
+	public void deleteUserQuestion(Long id) {
 		UserQuestionServiceRepository.delete(id);
 	}
 

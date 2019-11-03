@@ -94,8 +94,16 @@ public class AdminController {
     public String deleteQuestion(@PathVariable Long id){    
 		logger.info("<<<<<<<<<question i>>>>>>>>>>::::{}", id);
 
-		   userQuestionService.deleteUser(id);
+		   userQuestionService.deleteUserQuestion(id);
 	        return "redirect:/userQuestions";    
+    }     
+	
+	@RequestMapping(value="/deleteUser/{id}",method = RequestMethod.GET)    
+    public String deleteUser(@PathVariable Long id){    
+		logger.info("<<<<<<<<<question i>>>>>>>>>>::::{}", id);
+
+		   userService.deleteUser(id);
+	        return "redirect:/userDetails";    
     }     
 	
 
