@@ -103,6 +103,8 @@ public class AdminController {
 		logger.info("<<<<<<<<<user id>>>>>>>>>>::::{}", id);
 
 		   userService.deleteUser(id);
+		   logger.info("<<<<<<<<<success>>>>>>>>>");
+
 	        return "redirect:/userDetails";    
     }     
 	

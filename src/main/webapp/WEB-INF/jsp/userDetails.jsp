@@ -39,8 +39,7 @@
 		</div>
 		<div class="nav">
 		<form:form action="deleteUser" method="GET">
-		
-			<table id="example" class="table table-striped table-bordered">
+		<table id="example" class="table table-striped table-bordered">
 				<thead>
 					<th class="th-sm">Id</th>
 					<th class="th-sm">First Name</th>
@@ -57,6 +56,7 @@
 							<td><c:out value="${user.lastName}" /></td>
 							<td><c:out value="${user.senderId}" /></td>
 						    <td><a href="deleteUser/${user.id}">Delete</a></td>
+						    
 							
 						</tr>
 					</c:forEach>
