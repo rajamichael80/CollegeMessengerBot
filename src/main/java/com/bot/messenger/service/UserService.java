@@ -64,9 +64,9 @@ public class UserService implements IUserService{
 		String sql = "Select * from users where id=:id";
 		Query query = manager.createNativeQuery(sql);
 		query.setParameter("id", id);
-		User user = (User) query.getSingleResult();
-		System.out.println("----delete users--->"+user);
-		userRepository.delete(user);
+		List<User> users = (List<User>)query.getResultList();
+		System.out.println("----delete users--->"+users);
+		userRepository.delete(users.get(0));
 	}
 	
 	
