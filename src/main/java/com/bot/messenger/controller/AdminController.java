@@ -43,7 +43,7 @@ public class AdminController {
 	public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("admin") Admin admin) {
 		ModelAndView mav = null;
-		if (admin.getUsername().equals("admin")) {
+		if ("admin".equals(admin.getUsername()) && "admin".equals(admin.getPassword())) {
 			mav = new ModelAndView("UserInfo");
 		} else {
 			mav = new ModelAndView("admin");

@@ -20,8 +20,15 @@ public class QnaResponse1 {
 					"Hi " + userDetail.getFirstName() + " " + userDetail.getLastName()
 							+ ", Welcome to New Prince Shri Bhavani College of ENgineering and Technology, How can I help you?");
 			break;
+		case "hai":
+			jsonResponse = String.format(
+					"{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s\" } }",
+					"Hi " + userDetail.getFirstName() + " " + userDetail.getLastName()
+							+ ", Welcome to New Prince Shri Bhavani College of ENgineering and Technology, How can I help you?");
+			break;
 		case "course":
-			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Courses\", \"image_url\":\"https://college-messanger-bot.herokuapp.com/img/courses_offered.gif\", \"subtitle\":\"Here is cousre details\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-applications.php\", \"title\":\"MCA\" }, { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-science.php\", \"title\":\"Information Technology\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] }  ] } } } }";			break;
+			jsonResponse = "{ \"recipient\":{ \"id\":\"recipientId\" }, \"message\":{ \"attachment\":{ \"type\":\"template\", \"payload\":{ \"template_type\":\"generic\", \"elements\":[ { \"title\":\"Courses\", \"image_url\":\"https://college-messanger-bot.herokuapp.com/img/courses_offered.gif\", \"subtitle\":\"Here is cousre details\", \"buttons\":[ { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-applications.php\", \"title\":\"MCA\" }, { \"type\":\"web_url\", \"url\":\"http://www.newprinceshribhavani.com/computer-science.php\", \"title\":\"Information Technology\" }, { \"type\":\"postback\", \"title\":\"Any Other Query\", \"payload\":\"call our representative\" } ] }  ] } } } }";			
+			break;
 		case "time":
 			jsonResponse = String.format(
 					"{ \"recipient\": { \"id\": \"recipientId\" }, \"message\": { \"text\": \"%s\" } }",
